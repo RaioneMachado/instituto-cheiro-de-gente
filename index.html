@@ -6,49 +6,81 @@
   <title>Instituto Cheiro de Gente (ICG)</title>
   <meta name="description" content="Instituto Cheiro de Gente - ICG" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header" id="topo">
-    <div class="container header-wrap">
-      <a class="brand" href="#topo" aria-label="Página inicial">
-        <img src="img/logo-icg.png" alt="Instituto Cheiro de Gente - ICG" class="logo" />
-      </a>
+<!-- Header -->
+<header class="site-header" id="topo">
+  <div class="header-background"></div>
+  <div class="container header-wrap">
+    <a class="brand" href="#topo" aria-label="Página inicial">
+      <img src="imagens/logo.png" alt="Instituto Cheiro de Gente - ICG" class="logo" />
+    </a>
 
-      <nav class="nav" aria-label="Primária">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
-          <span class="nav-toggle-bar"></span>
-          <span class="sr-only">Abrir menu</span>
-        </button>
-        <ul id="menu" class="menu">
-          <li><a href="#informacoes">Institucional</a></li>
-          <li><a href="#programas">Programas</a></li>
-          <li><a href="#noticias">Notícias</a></li>
-          <li><a href="#parceiros">Parceiros</a></li>
-          <li><a href="#contato" class="btn btn-primary">Doar</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <nav class="nav" aria-label="Primária">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+      <ul id="menu" class="menu">
+        <li><a href="#informacoes">Institucional</a></li>
+        <li><a href="#programas">Programas</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+        <li><a href="#parceiros">Parceiros</a></li>
+        <li><a href="#contato" class="btn btn-primary">Doar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- Hero (capa full-bleed, sem overlay) -->
   <section class="hero" aria-label="Capa">
-    <picture>
-      <!-- mobile primeiro -->
-      <source media="(max-width: 768px)" srcset="img/hero-mobile.jpg" />
-      <!-- desktop fallback -->
+    <div class="hero-background">
       <img src="imagens/capa.png" alt="Capa Instituto Cheiro de Gente" class="hero-img" />
-    </picture>
+      <div class="hero-overlay"></div>
+    </div>
 
     <div class="hero-content">
-      <h1 class="hero-title">CHEIRO DE GENTE</h1>
-      <p class="hero-subtitle">Promovendo direitos, dignidade e oportunidades.</p>
-      <div class="hero-cta">
-        <a href="#informacoes" class="btn btn-light">Conheça o ICG</a>
-        <a href="#contato" class="btn btn-primary">Quero apoiar</a>
+      <div class="hero-badge">
+        <span>Transformando Vidas Desde 2019</span>
       </div>
+      <h1 class="hero-title">
+        <span class="title-line">INSTITUTO</span>
+        <span class="title-line accent">CHEIRO DE GENTE</span>
+      </h1>
+      <p class="hero-subtitle">Promovendo direitos, dignidade e oportunidades para uma sociedade mais justa e inclusiva.</p>
+      <div class="hero-stats">
+
+
+      </div>
+      <div class="hero-cta">
+        <a href="#informacoes" class="btn btn-light">
+          <i class="fas fa-info-circle"></i>
+          Conheça o ICG
+        </a>
+        <a href="#contato" class="btn btn-primary">
+          <i class="fas fa-hand-holding-heart"></i>
+          Quero Apoiar
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
     </div>
   </section>
 
@@ -66,20 +98,36 @@
           pai do fundador CLODOALDO GOMES RIBEIRO, que lutava para promoção e a garantia dos direitos sociais
           e a defesa dos direitos humanos.
         </p>
+        <div class="info-highlight">
+          <div class="highlight-item">
+            <span class="highlight-number">2019</span>
+            <span class="highlight-text">Ano de Fundação</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">CNPJ</span>
+            <span class="highlight-text">34.479.467/0001-88</span>
+          </div>
+        </div>
       </div>
 
       <div class="col media" data-reveal>
-        <img src="imagens/imagem 1.png" alt="Atividades do Instituto Cheiro de Gente" class="rounded-img" />
+        <div class="image-container">
+          <img src="imagens/imagem 1.png" alt="Atividades do Instituto Cheiro de Gente" class="rounded-img" />
+          <div class="image-caption">Instituto Cheiro de Gente - Transformando vidas desde 2019</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="info-icg">
+<section class="info-icg">
   <div class="info-container">
-    <div class="info-image">
-      <img src="imagens/imagem 2.png" alt="Instituto Cheiro de Gente">
+    <div class="info-image" data-reveal>
+      <div class="image-frame">
+        <img src="imagens/imagem 2.png" alt="Instituto Cheiro de Gente">
+        <div class="image-overlay"></div>
+      </div>
     </div>
-    <div class="info-text">
+    <div class="info-text" data-reveal>
       <span class="info-subtitle">INFORMAÇÕES</span>
       <h2 class="info-title">ICG</h2>
       <p>
@@ -87,7 +135,28 @@
         na Rua Vereador João Brito, nº. 90, Sala A, Bairro Liberdade I - CEP: 68515-000, tendo sob o nº 
         de correspondência 121. E realiza atividades em todo o Estado do Pará.
       </p>
+      <div class="address-info">
+        <div class="address-item">
+          <i class="icon-placeholder"></i>
+          <div>
+            <h4>Endereço</h4>
+            <p>Rua Vereador João Brito, nº. 90, Sala A<br>Bairro Liberdade I - CEP: 68515-000</p>
+          </div>
+        </div>
+        <div class="address-item">
+          <i class="icon-location"></i>
+          <div>
+            <h4>Localização</h4>
+            <p>Parauapebas, Estado do Pará</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
   </div>
 </section>
 
@@ -102,10 +171,348 @@
         Tec. de Enfermagem do Trabalho, atualmente está à frente da Instituição 
         fazendo um grande trabalho social e educacional.
       </p>
+      <div class="presidente-badges">
+        <span class="badge">Tec. Enfermagem</span>
+        <span class="badge">Instrumentador Cirúrgico</span>
+        <span class="badge">Bombeiro Civil</span>
+      </div>
     </div>
     <div class="presidente-image">
-      <img src="imagens/imagem 3.png" alt="Presidente Clodoaldo Ribeiro">
+      <div class="image-wrapper">
+        <img src="imagens/imagem 3.png" alt="Presidente Clodoaldo Ribeiro">
+        <div class="image-overlay"></div>
+      </div>
     </div>
+  </div>
+  <div class="floating-elements">
+    <div class="floating-element el-1"></div>
+    <div class="floating-element el-2"></div>
+    <div class="floating-element el-3"></div>
+  </div>
+</section>
+
+<section class="equipe">
+  <div class="equipe-container">
+    <div class="equipe-header" data-reveal>
+      <span class="equipe-subtitle">Nossa Força</span>
+      <h2 class="equipe-title">Equipe Técnica e Operacional</h2>
+      <p>
+        Conheça as pessoas que fazem o Instituto Cheiro de Gente acontecer, 
+        unindo dedicação, profissionalismo e compromisso social.
+      </p>
+    </div>
+
+    <div class="equipe-grid">
+      <div class="equipe-member" data-reveal>
+        <div class="member-image">
+          <img src="imagens/clodoaldo.jpeg" alt="Clodoaldo Gomes - Presidente">
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+              <a href="#" aria-label="Email"><i class="icon-email"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Clodoaldo Gomes</h3>
+          <p>Presidente</p>
+          <div class="member-desc">
+            <p>Liderança e gestão estratégica do Instituto.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipe-member" data-reveal>
+        <div class="member-image">
+          <img src="imagens/Hakyla Ribeiro.jpeg" alt="Hakyla Ribeiro - Diretora">
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+              <a href="#" aria-label="Email"><i class="icon-email"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Hakyla Ribeiro</h3>
+          <p>Diretora</p>
+          <div class="member-desc">
+            <p>Coordenação de projetos e operações.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipe-member" data-reveal>
+        <div class="member-image">
+          <img src="imagens/WhatsApp Image 2025-09-09 at 10.21.51.jpeg" alt="Membro da equipe">
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+              <a href="#" aria-label="Email"><i class="icon-email"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Nome da Pessoa 3</h3>
+          <p>Cargo ou Função</p>
+          <div class="member-desc">
+            <p>Breve descrição das responsabilidades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+  </div>
+</section>
+
+
+<!-- Seção MISSÃO -->
+<!-- Seção MISSÃO -->
+<section class="missao-section">
+  <div class="missao-container">
+    <div class="missao-header" data-reveal>
+      <span class="missao-subtitle">Nosso Propósito</span>
+      <h2 class="missao-title">MISSÃO</h2>
+      <div class="title-decoration">
+        <div class="decoration-line"></div>
+        <div class="decoration-icon">⭐</div>
+        <div class="decoration-line"></div>
+      </div>
+    </div>
+    
+    <div class="missao-content" data-reveal>
+      <p class="missao-text">
+        Promover a valorização da diversidade e o desenvolvimento integral do ser humano, proporcionando
+        oportunidades através da educação, esporte, lazer, cultura e saúde, com o objetivo de qualificar
+        profissionalmente, desenvolver habilidades técnicas e inserir no mercado de trabalho, visando à melhoria
+        das condições de vida dos participantes. Buscamos, em liberdade, reduzir as desigualdades sociais e
+        contribuir para o equilíbrio ambiental, para construir uma sociedade mais inclusiva, justa e sustentável.
+      </p>
+      
+      <div class="missao-highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon">🎯</div>
+          <h4>Valorização da Diversidade</h4>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">📚</div>
+          <h4>Desenvolvimento Integral</h4>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🌱</div>
+          <h4>Sustentabilidade</h4>
+        </div>
+      </div>
+    </div>
+    
+    <div class="missao-visual">
+      <div class="visual-element el-1"></div>
+      <div class="visual-element el-2"></div>
+      <div class="visual-element el-3"></div>
+    </div>
+  </div>
+  
+  <div class="missao-background">
+    <div class="bg-particle p1"></div>
+    <div class="bg-particle p2"></div>
+    <div class="bg-particle p3"></div>
+    <div class="bg-particle p4"></div>
+  </div>
+</section>
+
+<!-- Seção VISÃO -->
+<section class="visao-section">
+  <div class="visao-container">
+    <div class="visao-header" data-reveal>
+      <span class="visao-subtitle">Futuro que Construímos</span>
+      <h2 class="visao-title">VISÃO</h2>
+      <div class="title-decoration">
+        <div class="decoration-line"></div>
+        <div class="decoration-icon">👁️</div>
+        <div class="decoration-line"></div>
+      </div>
+    </div>
+    
+    <div class="visao-content" data-reveal>
+      <div class="visao-text-wrapper">
+        <p class="visao-text">
+          Nossa visão é ser uma instituição líder na área social e educacional, promovendo a
+          valorização da diversidade e o desenvolvimento integral do ser humano. Buscamos elevar a
+          qualidade de vida dos vulneráveis, oferecendo oportunidades transformadoras por meio da
+          educação, cultura e saúde. Almejamos ser uma referência na defesa dos direitos sociais,
+          qualificação profissionalizante e capacitação de jovens e adultos, empoderando-os para
+          construir um futuro mais próspero e inclusivo, visionando torna-se uma das principais e mais
+          conceituadas instituições na área social e educativa, uma referência em promover, valorizar a
+          diversidade e cuidar do desenvolvimento integral do ser humano.
+        </p>
+      </div>
+      
+      <div class="visao-timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>Liderança Social</h4>
+            <p>Ser referência na área social e educacional</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>Transformação</h4>
+            <p>Elevar a qualidade de vida através de oportunidades</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>Empoderamento</h4>
+            <p>Capacitar jovens e adultos para um futuro próspero</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="visao-graphic">
+      <div class="graphic-circle circle-1"></div>
+      <div class="graphic-circle circle-2"></div>
+      <div class="graphic-circle circle-3"></div>
+      <div class="graphic-center">
+        <div class="center-icon">🌟</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="visao-background">
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+    <div class="bg-shape shape-4"></div>
+  </div>
+</section>
+
+
+<!-- Seção VALORES -->
+<section class="valores">
+  <!-- Imagem de fundo -->
+  <img src="imagens/imagem 4.png" alt="Fundo valores" class="valores-bg">
+  
+  <!-- Overlay escuro -->
+  <div class="valores-overlay"></div>
+  
+  <!-- Conteúdo da seção -->
+  <div class="valores-conteudo">
+    <div class="valores-header" data-reveal>
+      <span class="valores-subtitle">Nossos Princípios</span>
+      <h2 class="valores-title">VALORES</h2>
+      <div class="title-decoration">
+        <div class="decoration-line"></div>
+        <div class="decoration-icon">❤️</div>
+        <div class="decoration-line"></div>
+      </div>
+    </div>
+    
+    <div class="valores-text" data-reveal>
+      <p>
+        Nossa instituição tem o compromisso de atender a todos os cidadãos sem qualquer
+        distinção de crença, raça, cor, sexo, preferência partidária ou categoria social,
+        nacionalidade ou profissão. Zelamos pelos princípios da legalidade, impessoalidade,
+        moralidade, publicidade, razoabilidade, proporcionalidade, economicidade e da eficiência
+        em todas as nossas ações. Além disso, dedicamos nossos esforços para garantir os direitos
+        sociais e defender os direitos humanos, assegurando um ambiente inclusivo, justo e
+        acolhedor para todos.
+      </p>
+    </div>
+    
+    <div class="valores-grid" data-reveal>
+      <div class="valor-card">
+        <div class="valor-icon">🤝</div>
+        <h4>Inclusão</h4>
+        <p>Atendimento sem distinção de qualquer natureza</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon">⚖️</div>
+        <h4>Legalidade</h4>
+        <p>Respeito às leis e normas estabelecidas</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon">👁️</div>
+        <h4>Transparência</h4>
+        <p>Publicidade e clareza em todas as ações</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon">🌱</div>
+        <h4>Sustentabilidade</h4>
+        <p>Economicidade e eficiência nos recursos</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon">🛡️</div>
+        <h4>Direitos Humanos</h4>
+        <p>Defesa e garantia dos direitos fundamentais</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon">🏛️</div>
+        <h4>Moralidade</h4>
+        <p>Conduta ética em todas as situações</p>
+      </div>
+    </div>
+    
+    <div class="valores-cta" data-reveal>
+      <p>Compartilhamos desses valores?</p>
+      <a href="#contato" class="cta-button">Junte-se a Nós</a>
+    </div>
+  </div>
+  
+  <!-- Elementos flutuantes -->
+  <div class="valores-particles">
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+  </div>
+</section>
+
+<section class="areas-atuacao">
+  <img src="caminho/para/sua-imagem.jpg" alt="Fundo áreas de atuação" class="areas-bg">
+  <div class="areas-conteudo">
+    <h2>ÁREAS DE ATUAÇÃO</h2>
+    <ul>
+      <li>Ensino e Educação em todos os níveis e sentidos</li>
+      <li>Programas Educacionais</li>
+      <li>Projetos</li>
+      <li>Cursos de Capacitação</li>
+      <li>Aperfeiçoamento Profissional</li>
+      <li>Treinamentos Profissionalizantes e Gerencial, dentre outras atividades de ensino</li>
+      <li>Prestar serviços técnicos especializados aos associados e a outras entidades públicas ou privadas</li>
+      <li>Desenvolvimento Humano e Profissional</li>
+      <li>Difundir, promover e executar ações de responsabilidade social, empresarial e ambiental</li>
+      <li>Prestação de serviços especializados em sustentabilidade, geração de renda e outras áreas e políticas públicas</li>
+      <li>Estimular e Realizar Estudos</li>
+      <li>Promover programas de saúde, cultura, esporte e lazer</li>
+      <li>Promover ensino musical</li>
+      <li>Prestar serviços jurídicos e apoio</li>
+      <li>Promover a agricultura familiar</li>
+      <li>Promover a cultura, as tradições indígenas e a defesa e conservação do patrimônio histórico e artístico</li>
+      <li>Promover intercâmbio com outras organizações e entidades, entre outras</li>
+    </ul>
   </div>
 </section>
 
@@ -149,6 +556,9 @@
       </div>
     </div>
   </section>
+
+ 
+
 
   <!-- Notícias (placeholder) -->
   <section id="noticias" class="section">
@@ -283,5 +693,6 @@
   </button>
 
   <script src="script.js"></script>
+  
 </body>
 </html>
