@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instituto Cheiro de Gente (ICG)</title>
+  <meta name="description" content="Instituto Cheiro de Gente - ICG" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" id="topo">
+    <div class="container header-wrap">
+      <a class="brand" href="#topo" aria-label="Página inicial">
+        <img src="img/logo-icg.png" alt="Instituto Cheiro de Gente - ICG" class="logo" />
+      </a>
+
+      <nav class="nav" aria-label="Primária">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="sr-only">Abrir menu</span>
+        </button>
+        <ul id="menu" class="menu">
+          <li><a href="#informacoes">Institucional</a></li>
+          <li><a href="#programas">Programas</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#parceiros">Parceiros</a></li>
+          <li><a href="#contato" class="btn btn-primary">Doar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (capa full-bleed, sem overlay) -->
+  <section class="hero" aria-label="Capa">
+    <picture>
+      <!-- mobile primeiro -->
+      <source media="(max-width: 768px)" srcset="img/hero-mobile.jpg" />
+      <!-- desktop fallback -->
+      <img src="imagens/capa.png" alt="Capa Instituto Cheiro de Gente" class="hero-img" />
+    </picture>
+
+    <div class="hero-content">
+      <h1 class="hero-title">CHEIRO DE GENTE</h1>
+      <p class="hero-subtitle">Promovendo direitos, dignidade e oportunidades.</p>
+      <div class="hero-cta">
+        <a href="#informacoes" class="btn btn-light">Conheça o ICG</a>
+        <a href="#contato" class="btn btn-primary">Quero apoiar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMAÇÕES INSTITUCIONAIS -->
+  <section id="informacoes" class="section">
+    <div class="container two-col">
+      <div class="col content" data-reveal>
+        <span class="kicker">Informações</span>
+        <h2>Institucionais</h2>
+        <p>
+          O INSTITUTO CHEIRO DE GENTE, com a sigla e o nome fantasia de I.C.G, é pessoa jurídica de
+          direito privado, constituída em 19/01/2019, devidamente inscrito no CNPJ: 34.479.467/0001-88,
+          na forma de associação civil, sem fins lucrativos, com autonomia administrativa e financeira,
+          nos moldes do Código Civil em vigor, o ICG foi criado em homenagem ao Senhor JOSÉ GOMES RIBEIRO,
+          pai do fundador CLODOALDO GOMES RIBEIRO, que lutava para promoção e a garantia dos direitos sociais
+          e a defesa dos direitos humanos.
+        </p>
+      </div>
+
+      <div class="col media" data-reveal>
+        <img src="imagens/imagem 1.png" alt="Atividades do Instituto Cheiro de Gente" class="rounded-img" />
+      </div>
+    </div>
+  </section>
+
+  <section class="info-icg">
+  <div class="info-container">
+    <div class="info-image">
+      <img src="imagens/imagem 2.png" alt="Instituto Cheiro de Gente">
+    </div>
+    <div class="info-text">
+      <span class="info-subtitle">INFORMAÇÕES</span>
+      <h2 class="info-title">ICG</h2>
+      <p>
+        O INSTITUTO CHEIRO DE GENTE - I.C.G, tem sede e foro na Cidade de Parauapebas, Estado do Pará, 
+        na Rua Vereador João Brito, nº. 90, Sala A, Bairro Liberdade I - CEP: 68515-000, tendo sob o nº 
+        de correspondência 121. E realiza atividades em todo o Estado do Pará.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="presidente">
+  <div class="presidente-container">
+    <div class="presidente-text">
+      <span class="presidente-subtitle">PRESIDENTE</span>
+      <h2 class="presidente-title">Clodoaldo Ribeiro</h2>
+      <p>
+        Clodoaldo Ribeiro, presidente do Instituto Cheiro de Gente, Tec. de Enfermagem,
+        também tem sua ocupação como Instrumentador Cirúrgico, Bombeiro Civil e 
+        Tec. de Enfermagem do Trabalho, atualmente está à frente da Instituição 
+        fazendo um grande trabalho social e educacional.
+      </p>
+    </div>
+    <div class="presidente-image">
+      <img src="imagens/imagem 3.png" alt="Presidente Clodoaldo Ribeiro">
+    </div>
+  </div>
+</section>
+
+
+  <!-- Programas (placeholder dinâmico) -->
+  <section id="programas" class="section alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">O que fazemos</span>
+        <h2>Programas e Ações</h2>
+        <p>Conheça iniciativas contínuas e projetos que impactam nossa comunidade.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card" data-reveal>
+          <img src="img/programa-1.jpg" alt="Programa 1" />
+          <div class="card-body">
+            <h3>Proteção Social</h3>
+            <p>Atendimento a famílias em vulnerabilidade, orientação e encaminhamentos.</p>
+            <a href="#" class="card-link">Saiba mais</a>
+          </div>
+        </article>
+
+        <article class="card" data-reveal>
+          <img src="img/programa-2.jpg" alt="Programa 2" />
+          <div class="card-body">
+            <h3>Educação & Oficinas</h3>
+            <p>Atividades formativas para crianças, adolescentes e adultos.</p>
+            <a href="#" class="card-link">Saiba mais</a>
+          </div>
+        </article>
+
+        <article class="card" data-reveal>
+          <img src="img/programa-3.jpg" alt="Programa 3" />
+          <div class="card-body">
+            <h3>Direitos Humanos</h3>
+            <p>Promoção e defesa de direitos, campanhas e advocacy local.</p>
+            <a href="#" class="card-link">Saiba mais</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notícias (placeholder) -->
+  <section id="noticias" class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Acontece no ICG</span>
+        <h2>Notícias</h2>
+      </div>
+
+      <div class="news-grid">
+        <article class="news" data-reveal>
+          <img src="img/noticia-1.jpg" alt="Notícia 1" />
+          <div class="news-body">
+            <h3>Título da Notícia 1</h3>
+            <p>Resumo breve da notícia. Clique para ler mais.</p>
+            <a href="#" class="news-link">Leia mais</a>
+          </div>
+        </article>
+
+        <article class="news" data-reveal>
+          <img src="img/noticia-2.jpg" alt="Notícia 2" />
+          <div class="news-body">
+            <h3>Título da Notícia 2</h3>
+            <p>Resumo breve da notícia. Clique para ler mais.</p>
+            <a href="#" class="news-link">Leia mais</a>
+          </div>
+        </article>
+
+        <article class="news" data-reveal>
+          <img src="img/noticia-3.jpg" alt="Notícia 3" />
+          <div class="news-body">
+            <h3>Título da Notícia 3</h3>
+            <p>Resumo breve da notícia. Clique para ler mais.</p>
+            <a href="#" class="news-link">Leia mais</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parceiros (carrossel simples) -->
+  <section id="parceiros" class="section alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Rede de Apoio</span>
+        <h2>Parceiros</h2>
+      </div>
+
+      <div class="partners" data-reveal>
+        <div class="partners-track" id="partnersTrack" aria-live="polite">
+          <img src="img/parceiro-1.png" alt="Parceiro 1" />
+          <img src="img/parceiro-2.png" alt="Parceiro 2" />
+          <img src="img/parceiro-3.png" alt="Parceiro 3" />
+          <img src="img/parceiro-4.png" alt="Parceiro 4" />
+          <img src="img/parceiro-5.png" alt="Parceiro 5" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Doações -->
+  <section class="section cta-donate">
+    <div class="container cta-box" data-reveal>
+      <div class="cta-text">
+        <h2>Junte-se ao ICG</h2>
+        <p>Seu apoio transforma vidas. Doe agora e fortaleça nossos programas.</p>
+      </div>
+      <a href="#contato" class="btn btn-primary btn-lg">Quero Doar</a>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section">
+    <div class="container two-col contact">
+      <div class="col" data-reveal>
+        <h2>Contato</h2>
+        <p>Fale com a equipe do Instituto Cheiro de Gente.</p>
+
+        <div class="contact-item">
+          <img src="img/ico-whatsapp.png" alt="WhatsApp" />
+          <a href="https://wa.me/5591999999999" target="_blank" rel="noopener">+55 (91) 99999-9999</a>
+        </div>
+
+        <div class="contact-item">
+          <img src="img/ico-email.png" alt="E-mail" />
+          <a href="mailto:contato@icg.org.br">contato@icg.org.br</a>
+        </div>
+
+        <div class="contact-item">
+          <img src="img/ico-mapa.png" alt="Endereço" />
+          <p>Rua Exemplo, 123 - Belém/PA</p>
+        </div>
+      </div>
+
+      <div class="col" data-reveal>
+        <img src="img/mapa.jpg" alt="Mapa de localização do Instituto Cheiro de Gente" class="rounded-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-icg-branco.png" alt="Instituto Cheiro de Gente" class="logo-footer" />
+        <p>© <span id="year"></span> Instituto Cheiro de Gente (ICG). Todos os direitos reservados.</p>
+      </div>
+
+      <ul class="footer-menu">
+        <li><a href="#informacoes">Institucional</a></li>
+        <li><a href="#programas">Programas</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+        <li><a href="#parceiros">Parceiros</a></li>
+      </ul>
+
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <img src="img/ico-instagram.png" alt="Instagram" />
+        </a>
+        <a href="#" aria-label="Facebook">
+          <img src="img/ico-facebook.png" alt="Facebook" />
+        </a>
+        <a href="#" aria-label="YouTube">
+          <img src="img/ico-youtube.png" alt="YouTube" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+    <img src="img/ico-seta-cima.png" alt="Voltar ao topo" />
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
