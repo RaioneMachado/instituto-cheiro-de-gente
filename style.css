@@ -2846,3 +2846,100 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Botão de fechar (X) para o menu mobile */
+.menu-close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(232, 89, 52, 0.1);
+    border: 2px solid rgba(232, 89, 52, 0.3);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1002;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.menu-close-btn:hover {
+    background: rgba(232, 89, 52, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Mostra o botão de fechar apenas no mobile */
+@media (max-width: 768px) {
+    .menu-close-btn {
+        display: flex;
+    }
+    
+    /* Ajusta o menu para acomodar o botão de fechar */
+    .menu {
+        padding-top: 60px !important;
+    }
+}
+
+/* Estilos para o menu mobile */
+.menu.show {
+    display: flex !important;
+    right: 0 !important;
+}
+
+/* Animação do hamburger menu */
+.nav-toggle.active .nav-toggle-bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .nav-toggle-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Estilos para elementos revelados */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+[data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para o botão voltar ao topo */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Header scroll effect */
+.site-header.scrolled {
+    background: rgba(11, 11, 14, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.site-header.scrolled .logo {
+    height: 50px;
+}
