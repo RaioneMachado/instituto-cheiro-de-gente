@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrativismo que Alimenta - Tucumã</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --light-text: #f8fafc;
+            --muted-text: #a0a0a0;
+            --primary-color: #FF7B00;
+            --secondary-color: #FFA94D;
+            --accent-color: #FF5E00;
+            --nature-green: #2E8B57;
+            --nature-light: #3CB371;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            --green-gradient: linear-gradient(135deg, var(--nature-green) 0%, var(--nature-light) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a1a" width="100" height="100"/><path fill="%23FF7B00" opacity="0.2" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            position: relative;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(255, 123, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--muted-text);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Product Info */
+        .product-info {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(255, 123, 0, 0.2);
+        }
+
+        .product-info h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-info p {
+            color: var(--muted-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(46, 139, 87, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--nature-green);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(46, 139, 87, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 2px solid var(--nature-green);
+        }
+
+        .benefit-icon i {
+            font-size: 2rem;
+            color: var(--nature-green);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+
+        .benefit-card p {
+            color: var(--muted-text);
+            line-height: 1.6;
+        }
+
+        /* Nutrition Table */
+        .nutrition-section {
+            margin: 4rem 0;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .nutrition-table th, .nutrition-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nutrition-table th {
+            background: rgba(255, 123, 0, 0.2);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nutrition-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .nutrition-table tr:hover {
+            background: rgba(255, 123, 0, 0.05);
+        }
+
+        /* Shipping Info */
+        .shipping-info {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 4rem 0;
+            border: 2px solid rgba(255, 123, 0, 0.2);
+        }
+
+        .shipping-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .shipping-option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .shipping-option h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .shipping-option p {
+            color: var(--muted-text);
+            line-height: 1.6;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a1a" width="100" height="100"/><path fill="%233CB371" opacity="0.2" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            border-radius: 15px;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 123, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 123, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .product-info, .shipping-info {
+                padding: 1.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nutrition-table {
+                font-size: 0.9rem;
+            }
+            
+            .nutrition-table th, .nutrition-table td {
+                padding: 0.8rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1>EXTRAVISMO QUE ALIMENTA</h1>
+            <p class="subtitle">Descubra o sabor autêntico da Amazônia com a Polpa de Tucumã</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="content-section">
+            <div class="image-gallery">
+                <div class="gallery-item fade-in">
+                    <img src="imagens/tucuma 1.png" alt="Tucumã da Amazônia">
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <img src="imagens/tucuma 2.png" alt="Polpa de Tucumã">
+                </div>
+            </div>
+
+            <div class="product-info fade-in delay-2">
+                <h3>Tucumã</h3>
+                <p>Descubra o sabor autêntico da Amazônia com a Polpa de Tucumã Manaus!</p>
+                <p>Este produto 100% natural e descascado, pronto para consumo, é rico em nutrientes essenciais como vitaminas A e C, além de fibras e antioxidantes. O tucumã é perfeito para compor receitas regionais como o tradicional X-Caboquinho ou para acompanhar uma deliciosa tapioquinha.</p>
+                <p>O tucumã da Amazónia é rico em vitaminas, minerais, fibras e gorduras saudáveis, oferecendo múltiplos benefícios, como proteção da visão e pele, fortalecimento do sistema imunológico, melhoria da digestão e auxílio na prevenção de diabetes, doenças cardiovasculares e envelhecimento precoce. É uma excelente fonte de vitamina A (em forma de betacaroteno), vitaminas B e C, além de ômega-3, que ajuda a diminuir inflamações e melhora a circulação sanguínea.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-title fade-in">
+                <h2>Benefícios para a Saúde</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Saúde dos olhos e pele</h4>
+                    <p>A alta concentração de vitamina A (betacaroteno), vitaminas C e carotenoides presente no tucumã protege a visão e a pele contra o envelhecimento precoce e os danos causados pelos radicais livres.</p>
+                </div>
+
+                <div class="benefit-card fade-in delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Fortalecimento do sistema imunológico</h4>
+                    <p>As vitaminas e outros antioxidantes do tucumã combatem os radicais livres, fortalecendo as defesas do corpo contra doenças.</p>
+                </div>
+
+                <div class="benefit-card fade-in delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4>Melhora a digestão</h4>
+                    <p>As fibras da polpa do tucumã promovem o bom funcionamento do intestino, prevenindo a prisão de ventre e facilitando a absorção de nutrientes.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-band-aid"></i>
+                    </div>
+                    <h4>Ação anti-inflamatória</h4>
+                    <p>O ômega-3 e outras gorduras saudáveis no tucumã diminuem a inflamação no corpo e auxiliam no controle dos níveis de colesterol e açúcar no sangue.</p>
+                </div>
+
+                <div class="benefit-card fade-in delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Saúde cardiovascular</h4>
+                    <p>O ômega-3 contribui para um coração mais saudável e auxilia na regulação do colesterol.</p>
+                </div>
+
+                <div class="benefit-card fade-in delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h4>Energia e controle de peso</h4>
+                    <p>As fibras e gorduras saudáveis ajudam a proporcionar saciedade, podendo ser um aliado na manutenção de um peso corporal saudável, embora o consumo deva ser moderado devido ao seu teor calórico.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-title fade-in">
+                <h2>Informações Nutricionais</h2>
+            </div>
+
+            <div class="nutrition-section fade-in">
+                <table class="nutrition-table">
+                    <tr>
+                        <th>Componente</th>
+                        <th>3 unidades de tucumã (100g)</th>
+                    </tr>
+                    <tr>
+                        <td>Energia</td>
+                        <td>262 calorias</td>
+                    </tr>
+                    <tr>
+                        <td>Carboidratos</td>
+                        <td>26,5 g</td>
+                    </tr>
+                    <tr>
+                        <td>Proteínas</td>
+                        <td>2,1 g</td>
+                    </tr>
+                    <tr>
+                        <td>Gorduras</td>
+                        <td>19,1 g</td>
+                    </tr>
+                    <tr>
+                        <td>Fibras</td>
+                        <td>12,7 g</td>
+                    </tr>
+                    <tr>
+                        <td>Vitamina A</td>
+                        <td>808 mcg</td>
+                    </tr>
+                    <tr>
+                        <td>Carotenoides</td>
+                        <td>6265</td>
+                    </tr>
+                    <tr>
+                        <td>Luteína</td>
+                        <td>79 mcg</td>
+                    </tr>
+                    <tr>
+                        <td>Zeaxantina</td>
+                        <td>16 mcg</td>
+                    </tr>
+                    <tr>
+                        <td>Vitamina C</td>
+                        <td>24 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Potássio</td>
+                        <td>401 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Magnésio</td>
+                        <td>121 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Cálcio</td>
+                        <td>46 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Fósforo</td>
+                        <td>53 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Zinco</td>
+                        <td>0,9 mcg</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-title fade-in">
+                <h2>Como Consumir</h2>
+            </div>
+
+            <div class="product-info fade-in">
+                <p><strong>In natura:</strong> A fruta pode ser consumida diretamente ou através da sua polpa, que é fibrosa.</p>
+                <p><strong>Suco:</strong> O tucumã é frequentemente consumido como suco, também conhecido como vinho de tucumã.</p>
+                <p><strong>Outros produtos:</strong> A polpa e o óleo do tucumã podem ser encontrados em diversos produtos alimentícios e cosméticos.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-title fade-in">
+                <h2>Informações do Produto</h2>
+            </div>
+
+            <div class="product-info fade-in">
+                <p><strong>Marca:</strong> Extrativismo que alimenta</p>
+                <p><strong>Conteúdo da Embalagem:</strong> 01 Polpa De Tucumã 100g</p>
+                <p><strong>Peso do Produto:</strong> 100g (embalagem individual), também disponível com 400g e 1kg</p>
+                <p><strong>Aviso:</strong> Imagem Meramente Ilustrativa</p>
+                <p><strong>Atenção:</strong> Após aberto, consumir em até 03 dias</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-title fade-in">
+                <h2>Opções de Frete</h2>
+            </div>
+
+            <div class="shipping-info fade-in">
+                <p>Escolha a modalidade de frete que melhor atende suas necessidades:</p>
+                
+                <div class="shipping-options">
+                    <div class="shipping-option">
+                        <h4>Frete Expresso</h4>
+                        <p>O frete expresso é conhecido por sua rapidez na entrega. Geralmente, é a opção mais rápida disponível, sendo ideal para situações em que a urgência é primordial. O custo do frete expresso é geralmente mais elevado devido à velocidade e prioridade associadas ao serviço.</p>
+                    </div>
+                    
+                    <div class="shipping-option">
+                        <h4>Frete Padrão</h4>
+                        <p>O frete padrão é uma opção intermediária em termos de velocidade e custo. É uma escolha equilibrada para quem busca uma entrega confiável sem a necessidade de urgência extrema. O custo do frete padrão é geralmente mais acessível em comparação ao expresso.</p>
+                    </div>
+                    
+                    <div class="shipping-option">
+                        <h4>Frete Normal</h4>
+                        <p>O frete normal é a opção mais econômica, mas também a mais lenta. É adequado para situações em que a entrega imediata não é crucial e quando se procura economizar nos custos de envio. É importante considerar o prazo de entrega mais extenso ao escolher essa modalidade.</p>
+                    </div>
+                    
+                    <div class="shipping-option">
+                        <h4>Retirada em Loja</h4>
+                        <p>Algumas empresas oferecem a opção de retirada em loja ou em pontos de coleta designados. Essa modalidade permite que o comprador pegue o produto pessoalmente, economizando nos custos de envio. É uma escolha conveniente para aqueles que desejam evitar a espera pela entrega ou ter mais flexibilidade quanto ao horário de recebimento.</p>
+                    </div>
+                </div>
+                
+                <p class="fade-in" style="margin-top: 2rem; text-align: center;">Cada modalidade de frete atende a diferentes demandas, e a escolha dependerá das necessidades individuais do remetente e do destinatário, considerando fatores como urgência, custo e conveniência.</p>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <h2>Leve o melhor da Amazônia para sua mesa</h2>
+            <p>Experimente a Polpa de Tucumã e descubra os sabores autênticos da nossa região</p>
+            <a href="https://wa.me/5594992727132" target="_blank" class="cta-button">
+  Fazer Pedido <i class="fas fa-shopping-cart"></i>
+</a>
+
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>EXTRAVISMO QUE ALIMENTA • Leve o melhor da Amazônia para sua mesa</p>
+            <p>© 2025 Extrativismo que Alimenta. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animação de aparecimento ao rolar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const fadeInObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, fadeInOptions);
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.5s ease-in-out';
+                fadeInObserver.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
