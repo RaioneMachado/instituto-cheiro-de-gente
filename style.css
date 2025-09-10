@@ -5763,14 +5763,14 @@ body {
 
 /* SEÇÃO DE CONTATO - FUNDO ESCURO */
 .contact-section {
-  padding: 6rem 0;
+  padding: 4rem 1rem;
   background: #0a0a0e;
   position: relative;
 }
 
 .contact-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .contact-subtitle {
@@ -5778,13 +5778,13 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: block;
   margin-bottom: 1rem;
 }
 
 .contact-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -5795,30 +5795,32 @@ body {
 }
 
 .contact-description {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #ddd;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  padding: 0 1rem;
 }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .contact-card {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 1rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -5828,35 +5830,36 @@ body {
 .contact-card:hover {
   background: rgba(232, 89, 52, 0.1);
   border-color: rgba(232, 89, 52, 0.3);
-  transform: translateX(10px);
+  transform: translateX(5px);
 }
 
 .contact-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: #E85934;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
 .contact-details h3 {
   color: #fff;
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .contact-details a {
   color: #E85934;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: block;
   margin-bottom: 0.5rem;
   transition: all 0.3s ease;
+  word-break: break-all;
 }
 
 .contact-details a:hover {
@@ -5867,34 +5870,38 @@ body {
   color: #ddd;
   line-height: 1.6;
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .contact-details span {
   color: #999;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .contact-social {
-  padding: 2rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
 }
 
 .contact-social h3 {
   color: #fff;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .social-link {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background: rgba(232, 89, 52, 0.1);
   border-radius: 50%;
   display: flex;
@@ -5902,7 +5909,7 @@ body {
   justify-content: center;
   color: #E85934;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
@@ -5917,40 +5924,41 @@ body {
 .contact-map {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .map-container {
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .map-container img {
   width: 100%;
-  height: 300px;
+  height: 250px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .map-container:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .map-overlay {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 0.8rem;
+  left: 0.8rem;
   background: rgba(232, 89, 52, 0.9);
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .map-actions {
@@ -5963,11 +5971,12 @@ body {
   gap: 0.5rem;
   background: #E85934;
   color: white;
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.2rem;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .map-btn:hover {
@@ -5975,6 +5984,76 @@ body {
   transform: translateY(-2px);
 }
 
+/* Media Queries para Responsividade */
+@media (min-width: 576px) {
+  .contact-section {
+    padding: 4rem 2rem;
+  }
+  
+  .contact-card {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .social-links {
+    justify-content: flex-start;
+  }
+  
+  .contact-social {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .map-container img {
+    height: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .contact-section {
+    padding: 6rem 2rem;
+  }
+  
+  .contact-grid {
+    gap: 4rem;
+  }
+  
+  .contact-card {
+    padding: 2rem;
+  }
+  
+  .contact-social {
+    padding: 2rem;
+  }
+  
+  .contact-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-section {
+    padding: 6rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
 /* FOOTER - FUNDO ESCURO */
 .site-footer {
   background: #0a0a0e;
