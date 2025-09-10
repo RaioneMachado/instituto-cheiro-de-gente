@@ -212,3 +212,408 @@ document.addEventListener('keydown', function(e) {
         closeMenu();
     }
 });
+
+// Filtragem de cursos
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cursoCards = document.querySelectorAll('.curso-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove classe active de todos os botões
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona classe active ao botão clicado
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            cursoCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById('cursoModal');
+    const closeModal = document.querySelector('.modal-close');
+    const cursoButtons = document.querySelectorAll('.curso-btn');
+    
+    cursoButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const courseId = this.getAttribute('data-course');
+            // Aqui você pode adicionar lógica para preencher o modal com os dados do curso
+            modal.classList.add('active');
+        });
+    });
+    
+    closeModal.addEventListener('click', function() {
+        modal.classList.remove('active');
+    });
+    
+    // Fecha modal ao clicar fora
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+});
+
+// Lightbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            lightboxImage.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    lightboxClose.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.site-header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(11, 11, 14, 0.98)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.background = 'rgba(11, 11, 14, 0.95)';
+        }
+    });
+});
+
+// Lightbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-main, .thumbnail');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img') || this;
+            lightboxImage.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    lightboxClose.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.site-header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(11, 11, 14, 0.98)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.background = 'rgba(11, 11, 14, 0.95)';
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// Filtragem de palestras
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const palestraCards = document.querySelectorAll('.palestra-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove classe active de todos os botões
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona classe active ao botão clicado
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            palestraCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById('palestraModal');
+    const closeModal = document.querySelector('.modal-close');
+    const palestraButtons = document.querySelectorAll('.palestra-btn');
+    
+    // Dados das palestras
+    const palestrasData = {
+        'cultura-indigena': {
+            title: 'VALORIZAÇÃO DA CULTURA INDÍGENA',
+            duration: '5 horas',
+            audience: '50+ pessoas',
+            description: 'Palestra com objetivo de promover a importância e a riqueza das tradições, costumes, línguas e conhecimentos dos povos indígenas. Busca-se conscientizar o público sobre a necessidade de preservar e respeitar essas culturas milenares, reconhecendo sua contribuição para a diversidade cultural do país.',
+            objectives: [
+                'Combater estereótipos e preconceitos',
+                'Promover a valorização da identidade indígena',
+                'Fomentar o diálogo intercultural',
+                'Preservar saberes ancestrais',
+                'Construir sociedade mais justa e inclusiva'
+            ],
+            images: [
+                'imagens/palestras/cultura-indigena-1.jpg',
+                'imagens/palestras/cultura-indigena-2.jpg',
+                'imagens/palestras/cultura-indigena-3.jpg'
+            ]
+        },
+        'saude-bucal-infantil': {
+            title: 'SAÚDE BUCAL INFANTIL',
+            duration: '2 horas',
+            audience: '15 crianças (4-6 anos)',
+            description: 'Palestra com objetivo de promover a conscientização sobre a importância da higiene bucal e ensinar práticas saudáveis de cuidado com os dentes de forma lúdica e educativa para crianças.',
+            objectives: [
+                'Ensino lúdico sobre higiene bucal',
+                'Conscientização infantil',
+                'Prevenção de problemas dentários',
+                'Criação de hábitos saudáveis',
+                'Educação através de brincadeiras'
+            ],
+            images: [
+                'imagens/palestras/saude-bucal-infantil-1.jpg',
+                'imagens/palestras/saude-bucal-infantil-2.jpg',
+                'imagens/palestras/saude-bucal-infantil-3.jpg',
+                'imagens/palestras/saude-bucal-infantil-4.jpg'
+            ]
+        },
+        'saude-bucal-jovens': {
+            title: 'SAÚDE BUCAL PARA JOVENS',
+            duration: '3 horas',
+            audience: '25+ jovens (12-17 anos)',
+            description: 'Palestra com objetivo de promover a conscientização sobre a importância dos cuidados com a saúde bucal e incentivar práticas saudáveis de higiene oral para adolescentes e jovens.',
+            objectives: [
+                'Conscientização juvenil',
+                'Incentivo a práticas saudáveis',
+                'Prevenção de problemas bucais',
+                'Educação para autonomia',
+                'Promoção de saúde preventiva'
+            ],
+            images: [
+                'imagens/palestras/saude-bucal-jovens-1.jpg',
+                'imagens/palestras/saude-bucal-jovens-2.jpg',
+                'imagens/palestras/saude-bucal-jovens-3.jpg',
+                'imagens/palestras/saude-bucal-jovens-4.jpg'
+            ]
+        }
+    };
+    
+    palestraButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const palestraId = this.getAttribute('data-palestra');
+            const data = palestrasData[palestraId];
+            
+            if (data) {
+                // Preencher modal com dados
+                document.querySelector('.modal-title').textContent = data.title;
+                document.querySelector('.modal-duration').textContent = data.duration;
+                document.querySelector('.modal-audience').textContent = data.audience;
+                document.querySelector('.modal-description').textContent = data.description;
+                document.querySelector('.modal-image').src = data.images[0];
+                document.querySelector('.modal-badge').textContent = this.closest('.palestra-card').querySelector('.palestra-badge span').textContent;
+                
+                // Preencher objetivos
+                const objectivesList = document.querySelector('.objectives-list');
+                objectivesList.innerHTML = '';
+                data.objectives.forEach(obj => {
+                    const li = document.createElement('li');
+                    li.textContent = obj;
+                    objectivesList.appendChild(li);
+                });
+                
+                // Preencher galeria
+                const galleryGrid = document.querySelector('.gallery-grid');
+                galleryGrid.innerHTML = '';
+                data.images.forEach((imgSrc, index) => {
+                    if (index > 0) { // Pular a primeira imagem (já usada como principal)
+                        const img = document.createElement('img');
+                        img.src = imgSrc;
+                        img.alt = `Imagem ${index} da palestra`;
+                        img.addEventListener('click', () => {
+                            document.querySelector('.modal-image').src = imgSrc;
+                        });
+                        galleryGrid.appendChild(img);
+                    }
+                });
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    closeModal.addEventListener('click', function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+        observer.observe(el);
+    });
+});
+
+// Atualizar ano atual no footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Animação de contadores na seção de doações
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    counters.forEach(counter => {
+        const target = parseInt(counter.textContent);
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.textContent = Math.ceil(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Observar quando a seção de doações estiver visível
+const donateSection = document.querySelector('.donate-section');
+if (donateSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(donateSection);
+}
+
+// Newsletter form submission
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input').value;
+        
+        // Simulação de sucesso
+        this.innerHTML = '<p class="success-message">🎉 Obrigado por se inscrever!</p>';
+        
+        // Aqui você adicionaria a lógica real de envio
+        console.log('Email cadastrado:', email);
+    });
+}
+
+// Revelar elementos ao scroll
+function initRevealAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initRevealAnimations);

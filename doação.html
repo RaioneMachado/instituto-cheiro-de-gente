@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações - Instituto Cheiro de Gente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --light-text: #f8fafc;
+            --muted-text: #a0a0a0;
+            --primary-color: #FF7B00;
+            --secondary-color: #FFA94D;
+            --accent-color: #FF5E00;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a1a" width="100" height="100"/><path fill="%23FF7B00" opacity="0.2" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            position: relative;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(255, 123, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(255, 123, 0, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 123, 0, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(255, 123, 0, 0.5); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--muted-text);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Doação Section */
+        .doacao-section {
+            padding: 4rem 0;
+        }
+
+        .doacao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .doacao-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            border: 2px solid rgba(255, 123, 0, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doacao-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .doacao-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+
+        .doacao-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 123, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .doacao-icon i {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+        }
+
+        .doacao-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+
+        .doacao-card p {
+            color: var(--muted-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .info-destaque {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+            word-break: break-all;
+            text-shadow: 0 0 5px rgba(255, 123, 0, 0.3);
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 123, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.4);
+        }
+
+        .btn-copiar {
+            background: rgba(255, 123, 0, 0.15);
+            margin-left: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-copiar:hover {
+            background: rgba(255, 123, 0, 0.25);
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 123, 0, 0.08);
+            padding: 1.2rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.2rem 0;
+            border: 1px solid rgba(255, 123, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .info-container:hover {
+            background: rgba(255, 123, 0, 0.12);
+            border-color: var(--primary-color);
+        }
+
+        .info-text {
+            flex-grow: 1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 123, 0, 0.2);
+        }
+
+        .aviso {
+            background: rgba(255, 123, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .aviso::after {
+            content: '!';
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 8rem;
+            color: rgba(255, 123, 0, 0.1);
+            font-weight: 800;
+        }
+
+        .agradecimento {
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .agradecimento::before, .agradecimento::after {
+            content: '"';
+            font-size: 5rem;
+            color: var(--primary-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .agradecimento::before {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .agradecimento::after {
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 123, 0, 0.1);
+            border-radius: 12px;
+            min-width: 150px;
+            border: 1px solid rgba(255, 123, 0, 0.2);
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .counter-text {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .doacao-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .btn-copiar {
+                margin: 0.8rem 0 0 0;
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .counter {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Animação de flutuação */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Efeito de digitação */
+        .typed-text {
+            overflow: hidden;
+            border-right: 3px solid var(--primary-color);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color) }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h1>Faça sua Doação</h1>
+            <p class="subtitle">Sua contribuição é fundamental para continuarmos transformando vidas. Cada doação, independente do valor, faz a diferença.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="agradecimento">
+            <div class="doacao-icon float-animation">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h2>Obrigado por Apoiar Nossa Causa!</h2>
+            <p class="typed-text">Escolha a melhor forma de doar abaixo</p>
+        </div>
+
+        <div class="counter">
+            <div class="counter-item">
+                <div class="counter-number" id="counter1">0</div>
+                <div class="counter-text">Doadores</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" id="counter2">0</div>
+                <div class="counter-text">Vidas Impactadas</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" id="counter3">0</div>
+                <div class="counter-text">Projetos Ativos</div>
+            </div>
+        </div>
+
+        <div class="doacao-section">
+            <div class="doacao-grid">
+                <div class="doacao-card">
+                    <div class="doacao-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Transferência Bancária</h3>
+                    <p>Faça uma transferência diretamente para nossa conta corrente</p>
+                    
+                    <div class="info-container">
+                        <div class="info-text">
+                            <span class="info-label">Banco</span>
+                            <span class="info-destaque">Caixa Econômica Federal</span>
+                        </div>
+                        <button class="btn btn-copiar" onclick="copiarTexto('Caixa Econômica Federal')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    
+                    <div class="info-container">
+                        <div class="info-text">
+                            <span class="info-label">Agência</span>
+                            <span class="info-destaque">3245-X</span>
+                        </div>
+                        <button class="btn btn-copiar" onclick="copiarTexto('3245-X')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    
+                    <div class="info-container">
+                        <div class="info-text">
+                            <span class="info-label">Conta Corrente</span>
+                            <span class="info-destaque">107.066-5</span>
+                        </div>
+                        <button class="btn btn-copiar" onclick="copiarTexto('107.066-5')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    
+                    <div class="info-container">
+                        <div class="info-text">
+                            <span class="info-label">CNPJ</span>
+                            <span class="info-destaque">34.479.467/0001-88</span>
+                        </div>
+                        <button class="btn btn-copiar" onclick="copiarTexto('34.479.467/0001-88')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    
+                    <p>Favorecido: <strong>INSTITUTO CHEIRO DE GENTE</strong></p>
+                </div>
+
+                <div class="doacao-card">
+                    <div class="doacao-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>PIX</h3>
+                    <p>Faça sua doação via PIX usando nossa chave</p>
+                    
+                    <div class="info-container">
+                        <div class="info-text">
+                            <span class="info-label">Chave PIX (E-mail)</span>
+                            <span class="info-destaque">institutocheirodegente@gmail.com</span>
+                        </div>
+                        <button class="btn btn-copiar" onclick="copiarTexto('institutocheirodegente@gmail.com')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    
+                    <p>Use este e-mail como chave PIX em seu Internet Banking</p>
+                    
+                </div>
+
+                <div class="doacao-card">
+                    <div class="doacao-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Doação Recorrente</h3>
+                    <p>Seja um doador mensal e nos ajude a manter nossos projetos</p>
+                    
+                    <p class="info-destaque">Qualquer valor faz a diferença!</p>
+                    
+                    <p>Entre em contato conosco para configurar uma doação recorrente</p>
+                    
+                    <a href="mailto:institutocheirodegente@gmail.com" class="btn">
+                        <i class="fas fa-envelope"></i> Entrar em Contato
+                    </a>
+                </div>
+            </div>
+
+            <div class="aviso">
+                <h3><i class="fas fa-info-circle"></i> Importante</h3>
+                <p>Após realizar sua doação, envie o comprovante para o e-mail <strong>institutocheirodegente@gmail.com</strong> com seu nome completo e CPF para que possamos emitir seu recibo.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>INSTITUTO CHEIRO DE GENTE • CNPJ: 34.479.467/0001-88</p>
+            <p>Rua Vereador João Brito, Nº 90, Liberdade I, Parauapebas/PA • CEP: 68.515-000</p>
+            <p>© 2025 Instituto Cheiro de Gente. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        function copiarTexto(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                alert('Texto copiado: ' + texto);
+            }).catch(err => {
+                console.error('Erro ao copiar texto: ', err);
+            });
+        }
+        
+        // Animação de contador
+        function animateCounter(elementId, finalValue, duration) {
+            let startTime = null;
+            const element = document.getElementById(elementId);
+            const initialValue = 0;
+            
+            function updateCounter(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const currentValue = Math.floor(progress * (finalValue - initialValue) + initialValue);
+                element.textContent = currentValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = finalValue;
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+        
+        // Iniciar contadores quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounter('counter1', 527, 2000);
+            animateCounter('counter2', 1842, 2500);
+            animateCounter('counter3', 12, 1500);
+            
+            // Efeito de digitação no título
+            const titulo = document.querySelector('h1');
+            const textoOriginal = titulo.textContent;
+            titulo.textContent = '';
+            
+            let i = 0;
+            const digitar = () => {
+                if (i < textoOriginal.length) {
+                    titulo.textContent += textoOriginal.charAt(i);
+                    i++;
+                    setTimeout(digitar, 100);
+                }
+            };
+            
+            digitar();
+        });
+    </script>
+</body>
+</html>
