@@ -6729,3 +6729,92 @@ body {
     padding: 3rem 0;
   }
 }
+
+/* ESTILOS ESPECÍFICOS PARA A SEÇÃO PIQUIÁ */
+.piquia-preview {
+  background: linear-gradient(135deg, #2d4a18 0%, #1a2a0e 100%);
+  padding: 5rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.piquia-preview .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.piquia-preview .preview-header h2 {
+  background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.piquia-preview .divider {
+  background: linear-gradient(to right, #8dbc45, #5a8429);
+}
+
+.piquia-preview .preview-info h3 {
+  color: #8dbc45;
+}
+
+.piquia-preview .benefit-item i {
+  color: #8dbc45;
+}
+
+.piquia-preview .benefit-item {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.piquia-preview .benefit-item:hover {
+  background: rgba(141, 188, 69, 0.2);
+}
+
+.piquia-preview .preview-info p {
+  color: #f8f8f8;
+}
+
+.piquia-preview .benefit-item span {
+  color: #fff;
+}
+
+.piquia-preview .cta-button {
+  background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+  box-shadow: 0 5px 15px rgba(141, 188, 69, 0.3);
+  color: #1a2a0e;
+}
+
+.piquia-preview .cta-button:hover {
+  box-shadow: 0 8px 20px rgba(141, 188, 69, 0.5);
+  color: #1a2a0e;
+}
+
+.piquia-preview .cta-button.secondary {
+  background: linear-gradient(135deg, #1a2a0e 0%, #2d4a18 100%);
+  box-shadow: 0 5px 15px rgba(141, 188, 69, 0.3);
+  color: #8dbc45;
+  border: 2px solid #8dbc45;
+}
+
+.piquia-preview .cta-button.secondary:hover {
+  box-shadow: 0 8px 20px rgba(141, 188, 69, 0.5);
+  background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+  color: #1a2a0e;
+}
+
+/* RESPONSIVIDADE ESPECÍFICA */
+@media (max-width: 968px) {
+  .piquia-preview .preview-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .piquia-preview {
+    padding: 3rem 0;
+  }
+}
