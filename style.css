@@ -6640,3 +6640,92 @@ body {
     margin-bottom: 0.5rem;
   }
 }
+
+/* ESTILOS ESPECÍFICOS PARA A SEÇÃO CAMU-CAMU */
+.camucamu-preview {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1a00 100%);
+  padding: 5rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.camucamu-preview .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.camucamu-preview .preview-header h2 {
+  background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.camucamu-preview .divider {
+  background: linear-gradient(to right, #FF8C00, #FFD700);
+}
+
+.camucamu-preview .preview-info h3 {
+  color: #FFD700;
+}
+
+.camucamu-preview .benefit-item i {
+  color: #FF8C00;
+}
+
+.camucamu-preview .benefit-item {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.camucamu-preview .benefit-item:hover {
+  background: rgba(255, 140, 0, 0.2);
+}
+
+.camucamu-preview .preview-info p {
+  color: #f8f8f8;
+}
+
+.camucamu-preview .benefit-item span {
+  color: #fff;
+}
+
+.camucamu-preview .cta-button {
+  background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+  color: #1a1a1a;
+}
+
+.camucamu-preview .cta-button:hover {
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.5);
+  color: #1a1a1a;
+}
+
+.camucamu-preview .cta-button.secondary {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1a00 100%);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+  color: #FFD700;
+  border: 2px solid #FF8C00;
+}
+
+.camucamu-preview .cta-button.secondary:hover {
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+  background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+  color: #1a1a1a;
+}
+
+/* RESPONSIVIDADE ESPECÍFICA */
+@media (max-width: 968px) {
+  .camucamu-preview .preview-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .camucamu-preview {
+    padding: 3rem 0;
+  }
+}
