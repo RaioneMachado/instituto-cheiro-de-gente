@@ -37,52 +37,68 @@
   </div>
 </header>
 
-  <!-- Hero (capa full-bleed, sem overlay) -->
-  <section class="hero" aria-label="Capa">
-    <div class="hero-background">
-      <img src="imagens/capa.png" alt="Capa Instituto Cheiro de Gente" class="hero-img" />
-      <div class="hero-overlay"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span>Transformando Vidas Desde 2019</span>
-      </div>
-      <h1 class="hero-title">
-        <span class="title-line">INSTITUTO</span>
-        <span class="title-line accent">CHEIRO DE GENTE</span>
-      </h1>
-      <p class="hero-subtitle">Promovendo direitos, dignidade e oportunidades para uma sociedade mais justa e inclusiva.</p>
-      <div class="hero-stats">
-
-
-      </div>
-      <div class="hero-cta">
-        <a href="#informacoes" class="btn btn-light">
-          <i class="fas fa-info-circle"></i>
-          Conheça o ICG
-        </a>
-        <a href="doação.html" class="btn btn-primary">
-          <i class="fas fa-hand-holding-heart"></i>
-          Quero Apoiar
-        </a>
+<!-- Hero (capa full-bleed, sem overlay) -->
+<section class="hero" aria-label="Capa">
+  <div class="hero-background">
+    <!-- Carrossel de imagens -->
+    <div class="hero-carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <img src="imagens/capa.png" alt="Projetos sociais do Instituto Cheiro de Gente" class="hero-img" />
+        </div>
+        <div class="carousel-slide">
+          <img src="imagens/capa 5.png" alt="Comunidade beneficiada pelo Instituto" class="hero-img" />
+        </div>
+        <div class="carousel-slide">
+          <img src="imagens/capa 4.png" alt="Voluntários em ação" class="hero-img" />
+        </div>
+        <div class="carousel-slide">
+          <img src="imagens/capa 3.png" alt="Eventos comunitários" class="hero-img" />
+        </div>
       </div>
     </div>
+    <!-- OVERLAY PRETO TRANSPARENTE -->
+    <div class="hero-overlay" style="background: rgba(0, 0, 0, 0.3);"></div>
+  </div>
 
-    <div class="hero-scroll">
-      <div class="scroll-arrow">
-        <i class="fas fa-chevron-down"></i>
-      </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span>Transformando Vidas Desde 2019</span>
     </div>
+    <h1 class="hero-title">
+      <span class="title-line" style="display: block; text-shadow: 0 2px 10px rgba(0,0,0,0.7); font-weight: 900; letter-spacing: 1px;">INSTITUTO</span>
+      <span class="title-line accent" style="display: block; text-shadow: 0 0 25px rgba(232, 89, 52, 0.8), 0 2px 10px rgba(0,0,0,0.7); font-weight: 900; letter-spacing: 1px;">CHEIRO DE GENTE</span>
+    </h1>
+    <p class="hero-subtitle" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-weight: 500; font-size: 1.4rem; background: rgba(0,0,0,0.3); padding: 12px 20px; border-radius: 10px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
+      Promovendo direitos, dignidade e oportunidades para uma sociedade mais justa e inclusiva.
+    </p>
+    <div class="hero-stats"></div>
+    <div class="hero-cta">
+      <a href="#informacoes" class="btn btn-light">
+        <i class="fas fa-info-circle"></i>
+        Conheça o ICG
+      </a>
+      <a href="doação.html" class="btn btn-primary">
+        <i class="fas fa-hand-holding-heart"></i>
+        Quero Apoiar
+      </a>
+    </div>
+  </div>
 
-    <div class="hero-particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
+  <div class="hero-scroll">
+    <div class="scroll-arrow">
+      <i class="fas fa-chevron-down"></i>
     </div>
-  </section>
+  </div>
+
+  <div class="hero-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+</section>
 
   <!-- INFORMAÇÕES INSTITUCIONAIS -->
   <section id="informacoes" class="section">

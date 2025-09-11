@@ -220,7 +220,7 @@ img {
   box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
 }
 
-/* HERO SECTION */
+/* HERO SECTION - ATUALIZADO */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -240,6 +240,37 @@ img {
   z-index: -2;
 }
 
+/* Estilos do carrossel */
+.hero-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
 .hero-img {
   width: 100%;
   height: 100%;
@@ -254,15 +285,16 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(232, 89, 52, 0.3) 0%, rgba(11, 11, 14, 0.8) 100%);
-  z-index: -1;
+  background: linear-gradient(135deg, rgba(120, 120, 120, 0.2) 0%, rgba(30, 30, 30, 0.5) 100%);
+  z-index: 3;
 }
 
+/* O restante do CSS permanece igual */
 .hero-content {
   text-align: center;
   max-width: 900px;
   padding: 2rem;
-  z-index: 2;
+  z-index: 4; /* Acima de tudo */
 }
 
 .hero-badge {
@@ -351,6 +383,7 @@ img {
   text-align: center;
   animation: bounce 2s infinite;
   font-size: 0.9rem;
+  z-index: 4; /* Acima de tudo */
 }
 
 .scroll-arrow {
@@ -358,6 +391,22 @@ img {
   margin-top: 0.5rem;
 }
 
+.hero-particles {
+  z-index: 3; /* Acima do overlay, abaixo do conteúdo */
+}
+
+/* Animações */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
 /* SEÇÃO INFORMAÇÕES INSTITUCIONAIS */
 #informacoes {
   padding: 6rem 2rem;

@@ -617,3 +617,37 @@ function initRevealAnimations() {
 }
 
 document.addEventListener('DOMContentLoaded', initRevealAnimations);
+
+// Script para controle do carrossel de imagens
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  let currentSlide = 0;
+  
+  // Função para avançar para o próximo slide
+  function nextSlide() {
+    // Remover classe active do slide atual
+    slides[currentSlide].classList.remove('active');
+    
+    // Avançar para o próximo slide
+    currentSlide = (currentSlide + 1) % slides.length;
+    
+    // Adicionar classe active ao novo slide
+    slides[currentSlide].classList.add('active');
+  }
+  
+  // Iniciar o carrossel (mudar a cada 5 segundos)
+  setInterval(nextSlide, 5000);
+  
+  // Pré-carregar imagens para evitar trocas com delay
+  const imageUrls = [
+    'imagens/capa1.jpg',
+    'imagens/capa2.jpg',
+    'imagens/capa3.jpg',
+    'imagens/capa4.jpg'
+  ];
+  
+  imageUrls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+  });
+});
