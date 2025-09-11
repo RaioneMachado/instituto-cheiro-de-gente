@@ -3,223 +3,945 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participações - Instituto Cheiro de Gente</title>
+    <title>Transparência - Instituto Cheiro de Gente</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand: #E85934;
+            --brand-light: #ff7a5c;
+            --dark: #0B0B0E;
+            --dark-light: #1a1a24;
+            --light: #FFFFFF;
+            --gray: #f5f5f7;
+            --text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            background-color: var(--gray);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--brand);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--brand);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('imagens/capa.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(232, 89, 52, 0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .title-line.accent {
+            color: var(--brand);
+            text-shadow: 0 0 30px rgba(232, 89, 52, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* Transparency Section */
+        .transparency {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--brand);
+            border-radius: 2px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            background: var(--brand);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .card-text {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-light);
+        }
+
+        /* Financial Section */
+        .financial {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .financial .section-title {
+            color: white;
+        }
+
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .financial-card {
+            background: var(--dark-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .financial-icon {
+            font-size: 2.2rem;
+            color: var(--brand);
+            margin-bottom: 1rem;
+        }
+
+        .financial-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .financial-label {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Reports Section */
+        .reports {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .report-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-icon {
+            font-size: 1.8rem;
+            color: var(--brand);
+            margin-bottom: 1rem;
+        }
+
+        .report-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .report-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--brand);
+        }
+
+        .footer-desc {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--brand);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--brand);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--dark-light);
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--brand);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .admin-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--brand);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .admin-btn:hover {
+            transform: scale(1.1);
+            background: var(--brand-light);
+        }
+
+        .admin-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .admin-modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .admin-modal h2 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .admin-form input, .admin-form textarea, .admin-form select {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .admin-form button {
+            margin-top: 1rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .file-preview {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .file-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+            
+            .hero {
+                min-height: 60vh;
+                padding: 2rem 1rem;
+            }
+            
+            .financial-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container, .reports-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="site-header" id="topo">
-        <div class="container header-wrap">
-            <a class="brand" href="#topo" aria-label="Página inicial">
-                <img src="imagens/logo.png" alt="Instituto Cheiro de Gente - ICG" class="logo" />
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                INSTITUTO <span>CHEIRO DE GENTE</span>
             </a>
-            <nav class="nav" aria-label="Primária">
-                <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                    <span class="sr-only">Abrir menu</span>
-                </button>
-                <ul id="menu" class="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="https://wa.me/5594992727132" target="_blank">Contato</a></li>
-
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Projetos</a></li>
+                    <li><a href="#">Transparência</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Doações</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="participacoes-hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">NOSSAS <span>PARTICIPAÇÕES</span></h1>
-                <p class="hero-subtitle">Atuando ativamente em eventos e fóruns para promover transformação social</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Eventos</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Cidades</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Pessoas Impactadas</span>
-                    </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>Transformando Vidas Desde 2019</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">TRANSPARÊNCIA</span>
+                <span class="title-line accent">E PRESTAÇÃO DE CONTAS</span>
+            </h1>
+            <p class="hero-subtitle">Acesso aberto a todas as informações financeiras e administrativas do Instituto Cheiro de Gente.</p>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency">
+        <h2 class="section-title">Nossa Transparência</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Relatórios Financeiros</h3>
+                </div>
+                <div class="card-body">
+                    <p>Relatórios detalhados de receitas, despesas e balanços patrimoniais atualizados trimestralmente.</p>
+                    <a href="#" class="btn btn-primary">Acessar Relatórios</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Prestação de Contas</h3>
+                </div>
+                <div class="card-body">
+                    <p>Detalhamento de como cada doação é aplicada em nossos projetos e iniciativas sociais.</p>
+                    <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Editais e Licitações</h3>
+                </div>
+                <div class="card-body">
+                    <p>Processos seletivos, licitações e editais em andamento para contratações e parcerias.</p>
+                    <a href="#" class="btn btn-primary">Conhecer Editais</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Participações Section -->
-    <section class="participacoes-section">
-        <div class="container">
-            <!-- Conselho de Cultura -->
-            <article class="participacao-card" data-reveal>
-                <div class="participacao-content">
-                    <div class="participacao-header">
-                        <span class="participacao-date">2022</span>
-                        <h2 class="participacao-title">CONSELHO DE CULTURA</h2>
-                        <p class="participacao-subtitle">Escolha dos Novos Delegados e Demais Representantes</p>
-                    </div>
-                    <div class="participacao-description">
-                        <p>Participação ativa no processo de escolha dos novos delegados e representantes para o ano de 2022, contribuindo para a democratização da cultura e fortalecimento das políticas públicas culturais em nossa região.</p>
-                    </div>
-                    <div class="participacao-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Local: Conselho Municipal de Cultura</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Ano: 2022</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span>Público: Representantes culturais</span>
-                        </div>
-                    </div>
+    <!-- Financial Section -->
+    <section class="financial">
+        <h2 class="section-title">Números da Transparência</h2>
+        <div class="financial-grid">
+            <div class="financial-card">
+                <div class="financial-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
                 </div>
-                <div class="participacao-gallery">
-                    <div class="gallery-item">
-                        <img src="imagens/conselho de cultura 1.png" alt="Participação no Conselho de Cultura 2022 - Foto 1" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="imagens/conselho de cultura 2.png" alt="Participação no Conselho de Cultura 2022 - Foto 2" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
+                <div class="financial-value">R$ 458.752,00</div>
+                <div class="financial-label">Arrecadado em 2023</div>
+            </div>
+            <div class="financial-card">
+                <div class="financial-icon">
+                    <i class="fas fa-users"></i>
                 </div>
-            </article>
-
-            <!-- Fórum de Energias Renováveis -->
-            <article class="participacao-card" data-reveal>
-                <div class="participacao-content">
-                    <div class="participacao-header">
-                        <span class="participacao-date">2023</span>
-                        <h2 class="participacao-title">1° FÓRUM DE ENERGIAS RENOVÁVEIS</h2>
-                        <p class="participacao-subtitle">Carajás - Debate sobre Sustentabilidade Energética</p>
-                    </div>
-                    <div class="participacao-description">
-                        <p>Participação no primeiro fórum dedicado às energias renováveis na região de Carajás, discutindo inovações, sustentabilidade e o futuro energético da Amazônia, com foco no desenvolvimento sustentável e preservação ambiental.</p>
-                    </div>
-                    <div class="participacao-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Local: Região de Carajás</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Ano: 2023</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span>Público: Especialistas e comunidade</span>
-                        </div>
-                    </div>
+                <div class="financial-value">1.428</div>
+                <div class="financial-label">Pessoas impactadas</div>
+            </div>
+            <div class="financial-card">
+                <div class="financial-icon">
+                    <i class="fas fa-chart-pie"></i>
                 </div>
-                <div class="participacao-gallery">
-                    <div class="gallery-item">
-                        <img src="imagens/forum de energias.png" alt="Participação no 1° Fórum de Energias Renováveis - Foto 1" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="imagens/forum de energias 1.png" alt="Participação no 1° Fórum de Energias Renováveis - Foto 2" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
+                <div class="financial-value">87%</div>
+                <div class="financial-label">Aplicado em projetos</div>
+            </div>
+            <div class="financial-card">
+                <div class="financial-icon">
+                    <i class="fas fa-file-invoice"></i>
                 </div>
-            </article>
-
-            <!-- Projeto Piloto 3° Setor em Foco -->
-            <article class="participacao-card" data-reveal>
-                <div class="participacao-content">
-                    <div class="participacao-header">
-                        <span class="participacao-date">2023</span>
-                        <h2 class="participacao-title">PROJETO PILOTO 3° SETOR EM FOCO</h2>
-                        <p class="participacao-subtitle">Fortalecimento das Organizações da Sociedade Civil</p>
-                    </div>
-                    <div class="participacao-description">
-                        <p>Articipação ativa no projeto piloto que visa fortalecer as organizações do terceiro setor, promovendo capacitação, networking e oportunidades de colaboração entre entidades sociais, empresas e poder público.</p>
-                    </div>
-                    <div class="participacao-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Local: Várias localidades</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Ano: 2023</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span>Público: Organizações do 3° setor</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="participacao-gallery">
-                    <div class="gallery-item">
-                        <img src="imagens/projeto de piloto 1.png" alt="Participação no Projeto 3° Setor em Foco - Foto 1" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="imagens/projeto de piloto 1.png" alt="Participação no Projeto 3° Setor em Foco - Foto 2" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                </div>
-            </article>
+                <div class="financial-value">24</div>
+                <div class="financial-label">Relatórios publicados</div>
+            </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="participacoes-cta">
-        <div class="container">
-            <div class="cta-content" data-reveal>
-                <h2>Quer participar conosco?</h2>
-                <p>Junte-se ao Instituto Cheiro de Gente e faça parte dessa rede de transformação social</p>
-                <div class="cta-buttons">
-                    <a href="https://wa.me/5594992727132" target="_blank" class="cta-btn primary">
-  Seja um Parceiro
-</a>
-
-    
+    <!-- Reports Section -->
+    <section class="reports">
+        <h2 class="section-title">Documentos e Relatórios</h2>
+        <div class="reports-grid">
+            <div class="report-item">
+                <div class="report-icon">
+                    <i class="fas fa-file-pdf"></i>
                 </div>
+                <h3 class="report-title">Balanço Patrimonial 2023</h3>
+                <p class="report-desc">Demonstrativo completo dos ativos, passivos e patrimônio líquido do Instituto.</p>
+                <a href="#" class="btn btn-primary">Download PDF</a>
+            </div>
+            <div class="report-item">
+                <div class="report-icon">
+                    <i class="fas fa-file-excel"></i>
+                </div>
+                <h3 class="report-title">Planilha de Receitas e Despesas</h3>
+                <p class="report-desc">Detalhamento mensal de todas as entradas e saídas financeiras.</p>
+                <a href="#" class="btn btn-primary">Download Planilha</a>
+            </div>
+            <div class="report-item">
+                <div class="report-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="report-title">Relatório de Atividades 2023</h3>
+                <p class="report-desc">Relatório completo das atividades realizadas e pessoas impactadas.</p>
+                <a href="#" class="btn btn-primary">Ver Relatório</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 Instituto Cheiro de Gente. Todos os direitos reservados.</p>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <a href="#" class="footer-logo">INSTITUTO <span>CHEIRO DE GENTE</span></a>
+                <p class="footer-desc">Promovendo direitos, dignidade e oportunidades para uma sociedade mais justa e inclusiva.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-title">Links Rápidos</h3>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Projetos</a></li>
+                    <li><a href="#">Transparência</a></li>
+                    <li><a href="#">Como Ajudar</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3 class="footer-title">Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123, Cidade</p>
+                <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@cheirodegente.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Instituto Cheiro de Gente - Todos os direitos reservados</p>
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close">&times;</button>
-            <img src="" alt="" class="lightbox-image">
-            <div class="lightbox-caption"></div>
+    <!-- Admin Panel -->
+    <div class="admin-panel">
+        <div class="admin-btn" id="adminBtn">
+            <i class="fas fa-cog"></i>
         </div>
     </div>
 
-     <script src="script.js"></script>
+    <div class="admin-modal" id="adminModal">
+        <div class="admin-modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2>Painel Administrativo</h2>
+            <form class="admin-form" id="adminForm">
+                <input type="password" id="adminPassword" placeholder="Senha de administrador" required>
+                
+                <select id="contentType" required>
+                    <option value="">O que deseja atualizar?</option>
+                    <option value="banner">Imagem do Banner Principal</option>
+                    <option value="pdf">PDF de Relatórios</option>
+                    <option value="financial">Dados Financeiros</option>
+                </select>
+                
+                <div id="contentFields">
+                    <!-- Campos serão preenchidos via JavaScript -->
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Atualizar Conteúdo</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Admin Panel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminBtn = document.getElementById('adminBtn');
+            const adminModal = document.getElementById('adminModal');
+            const closeModal = document.getElementById('closeModal');
+            const adminForm = document.getElementById('adminForm');
+            const contentType = document.getElementById('contentType');
+            const contentFields = document.getElementById('contentFields');
+            
+            // Toggle admin modal
+            adminBtn.addEventListener('click', () => {
+                adminModal.style.display = 'flex';
+            });
+            
+            closeModal.addEventListener('click', () => {
+                adminModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            adminModal.addEventListener('click', (e) => {
+                if (e.target === adminModal) {
+                    adminModal.style.display = 'none';
+                }
+            });
+            
+            // Change form fields based on content type
+            contentType.addEventListener('change', function() {
+                const type = this.value;
+                let fieldsHTML = '';
+                
+                switch(type) {
+                    case 'banner':
+                        fieldsHTML = `
+                            <label>Selecione uma nova imagem para o banner:</label>
+                            <input type="file" id="bannerImage" accept="image/*" required>
+                            <div class="file-preview" id="bannerPreview"></div>
+                        `;
+                        break;
+                    case 'pdf':
+                        fieldsHTML = `
+                            <label>Selecione o tipo de relatório:</label>
+                            <select id="reportType" required>
+                                <option value="">Selecione o relatório</option>
+                                <option value="financial">Relatório Financeiro</option>
+                                <option value="activities">Relatório de Atividades</option>
+                                <option value="balance">Balanço Patrimonial</option>
+                            </select>
+                            <label>Selecione o arquivo PDF:</label>
+                            <input type="file" id="pdfFile" accept=".pdf" required>
+                        `;
+                        break;
+                    case 'financial':
+                        fieldsHTML = `
+                            <label>Selecione o dado financeiro para atualizar:</label>
+                            <select id="financialData" required>
+                                <option value="">Selecione o dado</option>
+                                <option value="revenue">Valor Arrecadado</option>
+                                <option value="people">Pessoas Impactadas</option>
+                                <option value="percentage">Percentual Aplicado</option>
+                                <option value="reports">Número de Relatórios</option>
+                            </select>
+                            <label>Novo valor:</label>
+                            <input type="text" id="financialValue" placeholder="Digite o novo valor" required>
+                        `;
+                        break;
+                }
+                
+                contentFields.innerHTML = fieldsHTML;
+                
+                // Add preview for banner images
+                if (type === 'banner') {
+                    const bannerImage = document.getElementById('bannerImage');
+                    const bannerPreview = document.getElementById('bannerPreview');
+                    
+                    bannerImage.addEventListener('change', function(e) {
+                        const file = e.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                bannerPreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                }
+            });
+            
+            // Handle form submission
+            adminForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = document.getElementById('adminPassword').value;
+                const type = contentType.value;
+                
+                // Simple password check
+                if (password === 'admin123') {
+                    switch(type) {
+                        case 'banner':
+                            const bannerImage = document.getElementById('bannerImage').files[0];
+                            if (bannerImage) {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                    // Update banner background
+                                    document.querySelector('.hero').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${e.target.result}')`;
+                                    alert('Banner atualizado com sucesso!');
+                                };
+                                reader.readAsDataURL(bannerImage);
+                            }
+                            break;
+                            
+                        case 'pdf':
+                            const reportType = document.getElementById('reportType').value;
+                            const pdfFile = document.getElementById('pdfFile').files[0];
+                            if (reportType && pdfFile) {
+                                // In a real application, you would upload the file to a server
+                                alert(`Relatório ${reportType} será atualizado em breve!`);
+                            }
+                            break;
+                            
+                        case 'financial':
+                            const financialData = document.getElementById('financialData').value;
+                            const financialValue = document.getElementById('financialValue').value;
+                            
+                            if (financialData && financialValue) {
+                                // Update financial data on the page
+                                const financialValues = document.querySelectorAll('.financial-value');
+                                
+                                switch(financialData) {
+                                    case 'revenue':
+                                        financialValues[0].textContent = financialValue;
+                                        break;
+                                    case 'people':
+                                        financialValues[1].textContent = financialValue;
+                                        break;
+                                    case 'percentage':
+                                        financialValues[2].textContent = financialValue;
+                                        break;
+                                    case 'reports':
+                                        financialValues[3].textContent = financialValue;
+                                        break;
+                                }
+                                
+                                alert('Dado financeiro atualizado com sucesso!');
+                            }
+                            break;
+                    }
+                    
+                    adminModal.style.display = 'none';
+                    adminForm.reset();
+                    contentFields.innerHTML = '';
+                } else {
+                    alert('Senha incorreta. Acesso não autorizado.');
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
