@@ -642,4 +642,108 @@
         });
     </script>
 </body>
+
+<!-- Botão Flutuante do WhatsApp -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/5594992727132?text=Olá! Gostaria de fazer um pedido do produto." target="_blank" class="whatsapp-btn">
+    <i class="fab fa-whatsapp"></i>
+    <span>Comprar Agora</span>
+  </a>
+</div>
+
+<style>
+  /* Estilos do Botão Flutuante do WhatsApp */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+  }
+
+  .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 16px;
+    animation: pulse 2s infinite;
+  }
+
+  .whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+  }
+
+  .whatsapp-btn i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .whatsapp-btn span {
+    white-space: nowrap;
+  }
+
+  /* Animação de pulsar */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .whatsapp-float {
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-btn {
+      padding: 12px 18px;
+      font-size: 14px;
+    }
+    
+    .whatsapp-btn i {
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .whatsapp-btn span {
+      display: none;
+    }
+    
+    .whatsapp-btn {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 0;
+      font-size: 24px;
+    }
+  }
+</style>
 </html>
