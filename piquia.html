@@ -88,6 +88,9 @@
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .section-title h2 {
@@ -442,7 +445,7 @@
             color: var(--light-text);
             font-weight: 500;
         }
-        
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -536,7 +539,7 @@
             <div class="product-info fade-in delay-2">
                 <h3>Piquiá</h3>
                 <p>Descubra o fruto amazônico com poderosas propriedades anti-inflamatórias e antioxidantes. O Piquiá é um tesouro natural que fortalece a imunidade, melhora a digestão e cuida da saúde da pele.</p>
-                <p>O piquiá oferece benefícios como propriedades anti-inflamatórias e antioxidantes, fortalece o sistema imunológico, melhora a digestão e a saúde da pele devido às vitaminas và fibras, e o óleo extraído do fruto é usado em cosméticos, além de poder ajudar a combater doenças respiratórias.</p>
+                <p>O piquiá oferece benefícios como propriedades anti-inflamatórias e antioxidantes, fortalece o sistema imunológico, melhora a digestão e a saúde da pele devido às vitaminas e fibras, e o óleo extraído do fruto é usado em cosméticos, além de poder ajudar a combater doenças respiratórias.</p>
                 <p>As folhas do piquiá também são usadas em chás para desintoxicação hepática. Este fruto amazônico é um verdadeiro presente da natureza para a saúde e bem-estar.</p>
             </div>
         </section>
@@ -603,7 +606,7 @@
             </div>
 
             <div class="product-info fade-in">
-                <p><strong>In natura:</strong> O piquiá pode ser consumido in natura ou cozido em pratos salgados, como o arroz de pequi, ou doces.</p>
+                <p><strong>In natura:</strong> O piquiá pode ser consumido in natura ou cozido in pratos salgados, como o arroz de pequi, ou doces.</p>
                 <p><strong>Óleo:</strong> É extraído um óleo tanto da polpa quanto da amêndoa do piquiá, com uso tradicional em cosméticos para a pele e cabelos.</p>
                 <p><strong>Chás:</strong> As folhas do pequiseiro são usadas para fazer chás com propriedades desintoxicantes para o fígado.</p>
                 <p><strong>Polpa congelada:</strong> Ideal para preparo de diversas receitas e sucos.</p>
@@ -641,7 +644,7 @@
                     
                     <div class="shipping-option">
                         <h4>Frete Padrão Refrigerado</h4>
-                        <p>Entrega avec embalagem térmica para conservação do produto. Prazo moderado com custo acessível.</p>
+                        <p>Entrega com embalagem térmica para conservação do produto. Prazo moderado com custo acessível.</p>
                     </div>
                     
                     <div class="shipping-option">
@@ -902,8 +905,18 @@
             const cnpjField = document.getElementById('cnpjField');
             const orderForm = document.getElementById('orderForm');
             
+            // Função para limpar o formulário
+            function resetForm() {
+                orderForm.reset();
+                cpfField.style.display = 'none';
+                cnpjField.style.display = 'none';
+                document.querySelector('#cpfField label .required').style.display = 'none';
+                document.querySelector('#cnpjField label .required').style.display = 'none';
+            }
+            
             // Open modal
             openModalBtn.addEventListener('click', function() {
+                resetForm(); // Limpa o formulário ao abrir
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             });
@@ -912,6 +925,7 @@
             closeModalBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                resetForm(); // Limpa o formulário ao fechar
             });
             
             // Close modal when clicking outside
@@ -919,6 +933,7 @@
                 if (event.target === modal) {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
+                    resetForm(); // Limpa o formulário ao clicar fora
                 }
             });
             
@@ -1009,9 +1024,7 @@
                 document.body.style.overflow = 'auto';
                 
                 // Reset form
-                orderForm.reset();
-                cpfField.style.display = 'none';
-                cnpjField.style.display = 'none';
+                resetForm();
             });
             
             // CPF/CNPJ validation functions (simplified)

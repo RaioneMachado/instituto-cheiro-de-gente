@@ -266,11 +266,13 @@
         .shipping-option h4 {
             color: var(--primary-color);
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .shipping-option p {
             color: var(--muted-text);
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* Call to Action */
@@ -536,7 +538,7 @@
             <div class="product-info fade-in delay-2">
                 <h3>Tucumã</h3>
                 <p>Descubra o sabor autêntico da Amazônia com a Polpa de Tucumã Manaus!</p>
-                <p>Este produto 100% natural e descascado, pronto para consumo, é rico em nutrientes essenciais como vitaminas A e C, além de fibras e antioxidantes. O tucumã é perfeito para compor receitas regionais como o tradicional X-Caboquinho ou para acompanhar uma deliciosa tapioquinha.</p>
+                <p>Este produto 100% natural e descascado, pronto para consumo, é rico em nutrientes essenciais como vitaminas A и C, além de fibras e antioxidantes. O tucumã é perfeito para compor receitas regionais como o tradicional X-Caboquinho ou para acompanhar uma deliciosa tapioquinha.</p>
                 <p>O tucumã da Amazónia é rico em vitamins, minerais, fibras e gorduras saudáveis, oferecendo múltiplos benefícios, como proteção da visão e pele, fortalecimento do sistema imunológico, melhoria da digestão e auxílio na prevenção de diabetes, doenças cardiovasculares e envelhecimento precoce. É uma excelente fonte de vitamina A (em forma de betacaroteno), vitaminas B e C, além de ômega-3, que ajuda a diminuir inflamações e melhora a circulação sanguínea.</p>
             </div>
         </section>
@@ -584,7 +586,7 @@
                         <i class="fas fa-heart"></i>
                     </div>
                     <h4>Saúde cardiovascular</h4>
-                    <p>O ômega-3 contribui para um coração mais saudável e auxilia na regulação do colesterol.</p>
+                    <p>O ômega-3 contribui para um coração mais saudável и auxilia na regulação do colesterol.</p>
                 </div>
 
                 <div class="benefit-card fade-in delay-2">
@@ -678,7 +680,7 @@
             </div>
 
             <div class="product-info fade-in">
-                <p><strong>In natura:</strong> A fruta pode ser consumida diretamente ou através da sua polpa, que é fibrosa.</p>
+                <p><strong>In natura:</strong> A fruta pode be consumida diretamente ou através da sua polpa, que é fibrosa.</p>
                 <p><strong>Suco:</strong> O tucumã é frequentemente consumido como suco, também conhecido como vinho de tucumã.</p>
                 <p><strong>Outros produtos:</strong> A polpa e o óleo do tucumã podem ser encontrados em diversos produtos alimentícios e cosméticos.</p>
             </div>
@@ -714,17 +716,17 @@
                     
                     <div class="shipping-option">
                         <h4>Frete Padrão</h4>
-                        <p>O frete padrão é uma opção intermediária em termos de velocidade e custo. É uma escolha equilibrada para quem busca uma entrega confiável sem a necessidade de urgência extrema. O custo do frete padrão é geralmente mais acessível em comparação ao expresso.</p>
+                        <p>O frete padrão é uma opção intermediária em termos de velocidade e custo. É uma escolha equilibrada para quem busca uma entrega confiável sem a necessidade de urgência extrema. O custo do frete padrão is geralmente mais acessível em comparação ao expresso.</p>
                     </div>
                     
                     <div class="shipping-option">
                         <h4>Frete Normal</h4>
-                        <p>O frete normal é a opção mais econômica, mas também a mais lenta. É adequado para situações em que a entrega imediata não é crucial e quando se procura economizar nos custos de envio. Es importante considerar o prazo de entrega mais extenso ao escolher essa modalidade.</p>
+                        <p>O frete normal é a opção mais econômica, mas também a mais lenta. É adequado para situações em que a entrega imediata não é crucial e quando se procura economizar nos custos de envio. É importante considerar o prazo de entrega mais extenso ao escolher essa modalidade.</p>
                     </div>
                     
                     <div class="shipping-option">
                         <h4>Retirada em Loja</h4>
-                        <p>Algumas empresas oferecem a opção de retirada em loja ou em pontos de coleta designados. Essa modalidade permite que o comprador pegue o produto pessoalmente, economizando nos custos de envio. É uma escolha conveniente para aqueles que desejam evitar a espera pela entrega ou ter mais flexibilidade quanto ao horário de recebimento.</p>
+                        <p>Algumas empresas oferecem a opção de retirada em loja ou em pontos de coleta designados. Essa modalidade permite que o comprador pegue o produto pessoalmente, economizando nos costs de envio. É uma escolha conveniente para aqueles que desejam evitar a espera pela entrega ou ter mais flexibilidade quanto ao horário de recebimento.</p>
                     </div>
                 </div>
                 
@@ -969,8 +971,18 @@
             const cnpjField = document.getElementById('cnpjField');
             const orderForm = document.getElementById('orderForm');
             
+            // Função para limpar o formulário
+            function resetForm() {
+                orderForm.reset();
+                cpfField.style.display = 'none';
+                cnpjField.style.display = 'none';
+                document.querySelector('#cpfField label .required').style.display = 'none';
+                document.querySelector('#cnpjField label .required').style.display = 'none';
+            }
+            
             // Open modal
             openModalBtn.addEventListener('click', function() {
+                resetForm(); // Limpa o formulário ao abrir
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             });
@@ -979,6 +991,7 @@
             closeModalBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                resetForm(); // Limpa o formulário ao fechar
             });
             
             // Close modal when clicking outside
@@ -986,6 +999,7 @@
                 if (event.target === modal) {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
+                    resetForm(); // Limpa o formulário ao clicar fora
                 }
             });
             
@@ -1074,9 +1088,7 @@
                 document.body.style.overflow = 'auto';
                 
                 // Reset form
-                orderForm.reset();
-                cpfField.style.display = 'none';
-                cnpjField.style.display = 'none';
+                resetForm();
             });
             
             // CPF/CNPJ validation functions (simplified)
