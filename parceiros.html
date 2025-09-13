@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parceiros - Catálogo de Cursos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #1a1a2e;
-            --card-bg: #16213e;
+            --dark-bg: #1a1a1a;
+            --card-bg: #242424;
             --light-text: #f8fafc;
-            --muted-text: #a0a0a0;
-            --primary-color: #00b4d8;
-            --secondary-color: #0077b6;
-            --accent-color: #03045e;
-            --nature-green: #0f4c75;
-            --nature-light: #3282b8;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            --muted-text: #d1d1d1;
+            --primary-color: #FF7B00;
+            --primary-light: #FF9A40;
+            --secondary-color: #FF5E00;
+            --accent-color: #FF3D00;
+            --nature-green: #FF8A00;
+            --nature-light: #FFAA40;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             --green-gradient: linear-gradient(135deg, var(--nature-green) 0%, var(--nature-light) 100%);
         }
@@ -46,23 +48,44 @@
         /* Header Styles */
         header {
             text-align: center;
-            padding: 4rem 1rem;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%2316213e" width="100" height="100"/><path fill="%2300b4d8" opacity="0.2" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            padding: 5rem 1rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        var(--gradient);
             background-size: cover;
             position: relative;
             border-bottom: 4px solid var(--primary-color);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23000" width="100" height="100"/><path fill="%23FF7B00" opacity="0.2" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            background-size: 100px;
+            z-index: -1;
         }
 
         .logo {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-color);
-            text-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+            text-shadow: 0 0 20px rgba(255, 123, 0, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
@@ -70,6 +93,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(255, 123, 0, 0.3);
         }
 
         .subtitle {
@@ -77,60 +101,64 @@
             color: var(--muted-text);
             max-width: 800px;
             margin: 0 auto 2rem;
+            font-weight: 300;
         }
 
         /* Content Sections */
         .content-section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: inline-block;
+            text-shadow: 0 2px 8px rgba(255, 123, 0, 0.3);
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 100px;
-            height: 4px;
+            width: 150px;
+            height: 5px;
             background: var(--gradient);
             margin: 0 auto;
-            border-radius: 2px;
+            border-radius: 3px;
+            box-shadow: 0 2px 8px rgba(255, 123, 0, 0.3);
         }
 
         /* Course Categories */
         .course-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
 
         .category-card {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             text-align: center;
-            border: 2px solid rgba(0, 180, 216, 0.2);
-            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 123, 0, 0.3);
+            transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
         .category-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--primary-color);
-            box-shadow: var(--shadow);
+            box-shadow: 0 15px 30px rgba(255, 123, 0, 0.2);
         }
 
         .category-card::before {
@@ -143,7 +171,7 @@
             background: var(--gradient);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .category-card:hover::before {
@@ -151,111 +179,138 @@
         }
 
         .category-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 180, 216, 0.1);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 123, 0, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 2rem;
             border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            background: rgba(255, 123, 0, 0.2);
+            transform: rotateY(180deg);
         }
 
         .category-icon i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
         }
 
         .category-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
             color: var(--light-text);
         }
 
         .category-card p {
             color: var(--muted-text);
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         /* Course Lists */
         .course-list {
             background: var(--card-bg);
             padding: 3rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            border: 2px solid rgba(0, 180, 216, 0.2);
+            border-radius: 20px;
+            margin-bottom: 3.5rem;
+            border: 2px solid rgba(255, 123, 0, 0.2);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .course-list:hover {
+            border-color: var(--primary-color);
         }
 
         .course-list h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(0, 180, 216, 0.2);
+            margin-bottom: 2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 2px solid rgba(255, 123, 0, 0.3);
+            text-shadow: 0 2px 5px rgba(255, 123, 0, 0.2);
         }
 
         .course-items {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         .course-item {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.8rem;
+            border-radius: 15px;
             border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .course-item:hover {
-            transform: translateX(5px);
-            background: rgba(0, 180, 216, 0.1);
+            transform: translateX(8px);
+            background: rgba(255, 123, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.2);
         }
 
         .course-item h4 {
             color: var(--light-text);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
         .course-item p {
             color: var(--muted-text);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .course-price {
             color: var(--primary-color);
             font-weight: 600;
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
+            font-size: 1.1rem;
         }
 
         /* Accordion Styles */
         .accordion {
-            margin-bottom: 1.5rem;
-            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--card-bg);
         }
 
         .accordion-header {
-            background: rgba(0, 180, 216, 0.1);
-            padding: 1.5rem;
+            background: rgba(255, 123, 0, 0.15);
+            padding: 1.8rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255, 123, 0, 0.25);
         }
 
         .accordion-header h4 {
             color: var(--light-text);
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
         }
 
         .accordion-icon {
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            color: var(--primary-color);
+            font-size: 1.2rem;
         }
 
         .accordion.active .accordion-icon {
@@ -265,8 +320,8 @@
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: rgba(0, 0, 0, 0.1);
+            transition: max-height 0.5s ease;
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .accordion.active .accordion-content {
@@ -274,51 +329,105 @@
         }
 
         .accordion-body {
-            padding: 1.5rem;
+            padding: 2.5rem;
         }
 
         /* Call to Action */
         .cta-section {
             text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%2316213e" width="100" height="100"/><path fill="%233282b8" opacity="0.2" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            padding: 5rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), 
+                        var(--gradient);
             background-size: cover;
-            border-radius: 15px;
-            margin: 4rem 0;
+            border-radius: 20px;
+            margin: 5rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23000" width="100" height="100"/><path fill="%23FF7B00" opacity="0.1" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            background-size: 100px;
+            z-index: -1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            color: var(--muted-text);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .cta-button {
             display: inline-block;
             background: var(--gradient);
             color: white;
-            padding: 1.2rem 2.5rem;
+            padding: 1.5rem 3rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            transition: all 0.4s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 123, 0, 0.4);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
-            margin-top: 2rem;
+            letter-spacing: 1.5px;
+            font-size: 1.2rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 123, 0, 0.6);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 5rem;
             color: var(--muted-text);
-            font-size: 0.9rem;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-top: 1px solid rgba(0, 180, 216, 0.2);
+            font-size: 1rem;
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 123, 0, 0.3);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
         }
 
         /* Responsive Design */
@@ -328,43 +437,64 @@
             }
             
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
             .course-items {
                 grid-template-columns: 1fr;
             }
+            
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-section p {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 576px) {
             .container {
-                padding: 0 1rem;
+                padding: 0 1.5rem;
             }
             
             header {
-                padding: 2rem 1rem;
+                padding: 3rem 1rem;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.3rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
             }
             
             .course-list {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             
             .course-categories {
                 grid-template-columns: 1fr;
             }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
+            }
         }
 
         /* Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -375,6 +505,24 @@
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
+        
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
     </style>
 </head>
 <body>
@@ -790,8 +938,6 @@
                 </div>
             </div>
 
-            <!-- Mais accordions podem ser adicionados aqui para os outros tipos de cursos -->
-
         </section>
 
         <section class="cta-section fade-in">
@@ -816,7 +962,7 @@
             const fadeElements = document.querySelectorAll('.fade-in');
             
             const fadeInOptions = {
-                threshold: 0.3,
+                threshold: 0.2,
                 rootMargin: '0px 0px -50px 0px'
             };
             
@@ -831,7 +977,7 @@
             
             fadeElements.forEach(element => {
                 element.style.opacity = 0;
-                element.style.transition = 'opacity 0.5s ease-in-out';
+                element.style.transition = 'opacity 0.7s ease-in-out, transform 0.7s ease-in-out';
                 fadeInObserver.observe(element);
             });
             
