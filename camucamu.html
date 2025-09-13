@@ -536,7 +536,7 @@
             <div class="product-info fade-in delay-2">
                 <h3>Camu-Camu</h3>
                 <p>Conheça o superalimento amazônico com 100x mais vitamina C que o limão! O Camu-Camu é uma potência nutricional que fortalece a imunidade e combate o envelhecimento precoce.</p>
-                <p>O camu-camu é uma fruta amazônica rica em vitamina C e antioxidantes que oferece diversos benefícios à saúde, incluindo: fortalecimento do sistema imunológico, prevenção do envelhecimento precoce, auxílio no controle da pressão arterial, do colesterol e do açúcar no sangue, e combate à inflamação e a infecções.</p>
+                <p>O camu-camu é uma fruta amazônica rica em vitamina C và antioxidantes que oferece diversos benefícios à saúde, incluindo: fortalecimento do sistema imunológico, prevenção do envelhecimento precoce, auxílio no controle da pressão arterial, do colesterol e do açúcar no sangue, e combate à inflamação e a infecções.</p>
                 <p>Seus antioxidantes combatem os radicais livres, protegendo as células do corpo. Enquanto por aqui ela é pouco popular, países europeus e até asiáticos já reconhecem o seu alto valor nutricional e propriedades que é capaz de proporcionar. O camu-camu has benefícios diversos para a saúde e é considerado um superfruto.</p>
             </div>
         </section>
@@ -879,7 +879,9 @@
             }
             100% {
                 transform: scale(1);
-                box-shadow: 0 5px極端な例外的状況を除き、基本的にこのコードは完全な機能を提供します。
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
     </style>
 
     <script>
@@ -916,8 +918,18 @@
             const cnpjField = document.getElementById('cnpjField');
             const orderForm = document.getElementById('orderForm');
             
+            // Função para limpar o formulário
+            function resetForm() {
+                orderForm.reset();
+                cpfField.style.display = 'none';
+                cnpjField.style.display = 'none';
+                document.querySelector('#cpfField label .required').style.display = 'none';
+                document.querySelector('#cnpjField label .required').style.display = 'none';
+            }
+            
             // Open modal
             openModalBtn.addEventListener('click', function() {
+                resetForm(); // Limpa o formulário ao abrir
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             });
@@ -926,6 +938,7 @@
             closeModalBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                resetForm(); // Limpa o formulário ao fechar
             });
             
             // Close modal when clicking outside
@@ -933,6 +946,7 @@
                 if (event.target === modal) {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
+                    resetForm(); // Limpa o formulário ao clicar fora
                 }
             });
             
@@ -1023,9 +1037,7 @@
                 document.body.style.overflow = 'auto';
                 
                 // Reset form
-                orderForm.reset();
-                cpfField.style.display = 'none';
-                cnpjField.style.display = 'none';
+                resetForm();
             });
             
             // CPF/CNPJ validation functions (simplified)
