@@ -947,6 +947,296 @@
                 Fale Conosco <i class="fas fa-comments"></i>
             </a>
         </section>
+
+        <section class="partners-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nossos Parceiros</h2>
+            <p>O <span class="highlight">Extrativismo que Alimenta</span> une forças com quem compartilha nossa missão de valorizar a Amazônia e seus produtos</p>
+        </div>
+        
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-logo">
+              
+                </div>
+                <h3>Tucumã</h3>
+                <p>Descubra o sabor autêntico da Amazônia com a Polpa de Tucumã! Produto 100% natural, rico em vitaminas A e C, fibras e antioxidantes.</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                
+                </div>
+                <h3>Piquiá</h3>
+                <p>Fruto amazônico com poderosas propriedades anti-inflamatórias e antioxidantes. Um tesouro natural que fortalece a imunidade, melhora a digestão e cuida da saúde da pele.</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+      
+                </div>
+                <h3>Camu-Camu</h3>
+                <p>Superalimento amazônico com 100x mais vitamina C que o limão! Uma potência nutricional que fortalece a imunidade e combate o envelhecimento precoce.</p>
+            </div>
+        
+        </div>
+        
+        <div class="partners-cta">
+            <p>Quer se tornar um parceiro do <span class="highlight">Extrativismo que Alimenta</span>?</p>
+            <a href="https://wa.me/559492727132" target="_blank" class="cta-button">
+  Fale Conosco
+</a>
+
+        </div>
+    </div>
+    
+    <style>
+        .partners-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0d1b08 0%, #1a2f0d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .partners-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a2f0d" width="100" height="100"/><path fill="%238dbc45" opacity="0.1" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .partners-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: #8dbc45;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #c8d6b5;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #8dbc45;
+            font-weight: 600;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .partner-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(141, 188, 69, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #8dbc45, #5a8429);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #8dbc45;
+        }
+        
+        .partner-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px solid #8dbc45;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-card:hover .partner-logo {
+            transform: scale(1.1);
+            background: rgba(141, 188, 69, 0.1);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+        
+        .partner-card:hover .partner-logo img {
+            filter: brightness(1) invert(0);
+        }
+        
+        .partner-card h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .partner-card p {
+            color: #c8d6b5;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .partners-cta {
+            text-align: center;
+            background: rgba(141, 188, 69, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px dashed #8dbc45;
+        }
+        
+        .partners-cta p {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(141, 188, 69, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(141, 188, 69, 0.5);
+            background: linear-gradient(135deg, #5a8429 0%, #8dbc45 100%);
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .partner-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .partner-card:nth-child(1) { animation-delay: 0.1s; }
+        .partner-card:nth-child(2) { animation-delay: 0.2s; }
+        .partner-card:nth-child(3) { animation-delay: 0.3s; }
+        .partner-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        /* Responsividade */
+        @media (max-width: 968px) {
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-header p {
+                font-size: 1.1rem;
+            }
+            
+            .partners-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .partners-section {
+                padding: 3rem 0;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .partner-card {
+                padding: 1.5rem;
+            }
+            
+            .partner-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .partners-cta {
+                padding: 1.5rem;
+            }
+            
+            .partners-cta p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</section>
     </div>
 
     <footer>
