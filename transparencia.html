@@ -1,153 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparência - Instituto Cheiro de Gente</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand: #E85934;
-            --brand-light: #ff7a5c;
-            --dark: #0B0B0E;
-            --dark-light: #1a1a24;
-            --light: #FFFFFF;
-            --gray: #f5f5f7;
-            --text: #333333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparência - Instituto Cheiro de Gente</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #E85934;
+      --brand-light: #ff7a5c;
+      --dark: #0B0B0E;
+      --dark-light: #1a1a24;
+      --light: #FFFFFF;
+      --gray: #f5f5f7;
+      --text: #333333;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        body {
-            color: var(--text);
-            background-color: var(--gray);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+    body {
+      color: var(--text);
+      background-color: var(--gray);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-        /* Header */
-        header {
-            background: var(--dark);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+    /* Novo Header */
+    .site-header {
+      background: var(--dark);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .header-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: white;
-            text-decoration: none;
-        }
+    .logo {
+      height: 50px;
+    }
 
-        .logo span {
-            color: var(--brand);
-        }
+    .nav {
+      position: relative;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        nav a:hover {
-            color: var(--brand);
-        }
+    .menu a:hover {
+      color: var(--brand);
+    }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+    .btn.btn-primary {
+      background: var(--brand);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
+    .btn.btn-primary:hover {
+      background: var(--brand-light);
+    }
 
-        .hero-content {
-            max-width: 900px;
-            z-index: 2;
-        }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(232, 89, 52, 0.2);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .nav-toggle-bar {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
 
-        .hero-title {
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        width: 200px;
+        border-radius: 8px;
+      }
 
-        .title-line {
-            display: block;
-        }
+      .menu.active {
+        display: flex;
+      }
 
-        .title-line.accent {
-            color: var(--brand);
-            text-shadow: 0 0 30px rgba(232, 89, 52, 0.5);
-        }
+      .nav-toggle {
+        display: flex;
+      }
+    }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(232, 89, 52, 0.2);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .title-line.accent {
+      color: var(--brand);
+      text-shadow: 0 0 30px rgba(232, 89, 52, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
 
         /* Transparency Section */
         .transparency {
@@ -491,19 +529,47 @@
 
     
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>Transformando Vidas Desde 2019</span>
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line">TRANSPARÊNCIA</span>
-                <span class="title-line accent">E PRESTAÇÃO DE CONTAS</span>
-            </h1>
-            <p class="hero-subtitle">Acesso aberto a todas as informações financeiras e administrativas do Instituto Cheiro de Gente.</p>
-        </div>
-    </section>
+  <!-- Header -->
+  <header class="site-header" id="topo">
+    <div class="header-background"></div>
+    <div class="container header-wrap">
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <img src="imagens/logo.png" alt="Instituto Cheiro de Gente - ICG" class="logo" />
+      </a>
+
+      <nav class="nav" aria-label="Primária">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="sr-only">Abrir menu</span>
+        </button>
+        <ul id="menu" class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cursosecapacitações.html">Cursos e Capacitações</a></li>
+          <li><a href="extrativismoquealimenta.html">Extrativismo</a></li>
+          <li><a href="Oficinas.html">Oficinas e Ações</a></li>
+          <li><a href="parceiros.html">Parceiros</a></li>
+          <li><a href="doação.html" class="btn btn-primary">Doar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>Transformando Vidas Desde 2019</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">TRANSPARÊNCIA</span>
+        <span class="title-line accent">E PRESTAÇÃO DE CONTAS</span>
+      </h1>
+      <p class="hero-subtitle">Acesso aberto a todas as informações financeiras e administrativas do Instituto Cheiro de Gente.</p>
+    </div>
+  </section>
 
 
     <!-- Sheets Section -->
