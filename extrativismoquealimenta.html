@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrativismo que Alimenta - Instituto Cheiro de Gente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ESTILOS GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ESTILOS PARA A SEÇÃO EXTRATIVISMO QUE ALIMENTA */
+        .extrativismo-preview {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .extrativismo-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2E8B57 0%, #0d0d0d 100%);
+            opacity: 0.9;
+            z-index: -1;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .preview-header h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FF7B00 0%, #3CB371 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .preview-header p {
+            font-size: 1.5rem;
+            color: #f8fafc;
+            margin-bottom: 1.5rem;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #FF7B00, #3CB371);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .preview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .preview-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .preview-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .preview-info h3 {
+            font-size: 2.5rem;
+            color: #FF7B00;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-info p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #f8fafc;
+        }
+
+        .benefits {
+            margin-bottom: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 123, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        .benefit-item i {
+            font-size: 1.5rem;
+            color: #3CB371;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .benefit-item span {
+            font-size: 1.1rem;
+            color: #f8fafc;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF7B00 0%, #FF5E00 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 123, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.5);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #3CB371 0%, #2E8B57 100%);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 0 8px 20px rgba(46, 139, 87, 0.5);
+        }
+
+        /* Responsividade */
+        @media (max-width: 968px) {
+            .preview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .preview-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .preview-header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .extrativismo-preview {
+                padding: 3rem 0;
+            }
+            
+            .preview-header h2 {
+                font-size: 2rem;
+            }
+            
+            .preview-info h3 {
+                font-size: 2rem;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .benefit-item i {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA A SEÇÃO CAMU-CAMU */
+        .camucamu-preview {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a00 100%);
+            padding: 5rem 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .camucamu-preview .preview-header h2 {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .camucamu-preview .divider {
+            background: linear-gradient(to right, #FF8C00, #FFD700);
+        }
+
+        .camucamu-preview .preview-info h3 {
+            color: #FFD700;
+        }
+
+        .camucamu-preview .benefit-item i {
+            color: #FF8C00;
+        }
+
+        .camucamu-preview .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .camucamu-preview .benefit-item:hover {
+            background: rgba(255, 140, 0, 0.2);
+        }
+
+        .camucamu-preview .preview-info p {
+            color: #f8f8f8;
+        }
+
+        .camucamu-preview .benefit-item span {
+            color: #fff;
+        }
+
+        .camucamu-preview .cta-button {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+            color: #1a1a1a;
+        }
+
+        .camucamu-preview .cta-button:hover {
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.5);
+            color: #1a1a1a;
+        }
+
+        .camucamu-preview .cta-button.secondary {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a00 100%);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            color: #FFD700;
+            border: 2px solid #FF8C00;
+        }
+
+        .camucamu-preview .cta-button.secondary:hover {
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+            color: #1a1a1a;
+        }
+
+        /* RESPONSIVIDADE ESPECÍFICA */
+        @media (max-width: 968px) {
+            .camucamu-preview .preview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .camucamu-preview {
+                padding: 3rem 0;
+            }
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA A SEÇÃO PIQUIÁ */
+        .piquia-preview {
+            background: linear-gradient(135deg, #2d4a18 0%, #1a2a0e 100%);
+            padding: 5rem 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .piquia-preview .preview-header h2 {
+            background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .piquia-preview .divider {
+            background: linear-gradient(to right, #8dbc45, #5a8429);
+        }
+
+        .piquia-preview .preview-info h3 {
+            color: #8dbc45;
+        }
+
+        .piquia-preview .benefit-item i {
+            color: #8dbc45;
+        }
+
+        .piquia-preview .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .piquia-preview .benefit-item:hover {
+            background: rgba(141, 188, 69, 0.2);
+        }
+
+        .piquia-preview .preview-info p {
+            color: #f8f8f8;
+        }
+
+        .piquia-preview .benefit-item span {
+            color: #fff;
+        }
+
+        .piquia-preview .cta-button {
+            background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+            box-shadow: 0 5px 15px rgba(141, 188, 69, 0.3);
+            color: #1a2a0e;
+        }
+
+        .piquia-preview .cta-button:hover {
+            box-shadow: 0 8px 20px rgba(141, 188, 69, 0.5);
+            color: #1a2a0e;
+        }
+
+        .piquia-preview .cta-button.secondary {
+            background: linear-gradient(135deg, #1a2a0e 0%, #2d4a18 100%);
+            box-shadow: 0 5px 15px rgba(141, 188, 69, 0.3);
+            color: #8dbc45;
+            border: 2px solid #8dbc45;
+        }
+
+        .piquia-preview .cta-button.secondary:hover {
+            box-shadow: 0 8px 20px rgba(141, 188, 69, 0.5);
+            background: linear-gradient(135deg, #8dbc45 0%, #5a8429 100%);
+            color: #1a2a0e;
+        }
+
+        /* RESPONSIVIDADE ESPECÍFICA */
+        @media (max-width: 968px) {
+            .piquia-preview .preview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .piquia-preview {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="extrativismo-preview">
+        <div class="container">
+            <div class="preview-header">
+                <h2>EXTRATIVISMO QUE ALIMENTA</h2>
+                <a href="https://wa.me/5594992727132?text=Olá! Gostaria de mais informações sobre o Instituto Cheiro de Gente." target="_blank" class="cta-button">Clique Aqui para entrar em contato</a>
+                <p>Descubra o sabor autêntico da Amazônia</p>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="preview-content">
+                <div class="preview-image">
+                    <img src="imagens/tucuma capa.png" alt="Tucumã da Amazônia">
+                    <div class="image-overlay">
+                        <a href="pagina-extrativismo.html" class="cta-button">Descubra Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="preview-info">
+                    <h3>Tucumã</h3>
+                    <p>Descubra o sabor autêntico da Amazônia com a Polpa de Tucumã! Produto 100% natural, rico em vitaminas A e C, fibras e antioxidantes.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-eye"></i>
+                            <span>Saúde dos olhos e pele</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Fortalecimento imunológico</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Saúde cardiovascular</span>
+                        </div>
+                    </div>
+                    
+                    <a href="pagina-extrativismo.html" class="cta-button secondary">Ver Detalhes Completos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="camucamu-preview">
+        <div class="container">
+            <div class="preview-header">
+                <h2>EXTRATIVISMO QUE ALIMENTA</h2>
+                <p>O poder do Camu-Camu da Amazônia</p>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="preview-content">
+                <div class="preview-image">
+                    <img src="imagens/camu camu capa.png" alt="Camu-Camu da Amazônia">
+                    <div class="image-overlay">
+                        <a href="camucamu.html" class="cta-button">Conheça Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="preview-info">
+                    <h3>Camu-Camu</h3>
+                    <p>Superalimento amazônico com 100x mais vitamina C que o limão! Uma potência nutricional que fortalece a imunidade e combate o envelhecimento precoce.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-virus"></i>
+                            <span>Fortalecimento imunológico</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Saúde cardiovascular</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Combate ao envelhecimento</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-fire"></i>
+                            <span>Potente antioxidante</span>
+                        </div>
+                    </div>
+                    
+                    <a href="camucamu.html" class="cta-button secondary">Ver Todos os Benefícios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="piquia-preview">
+        <div class="container">
+            <div class="preview-header">
+                <h2>EXTRATIVISMO QUE ALIMENTA</h2>
+                <p>O poder terapêutico do Piquiá da Amazônia</p>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="preview-content">
+                <div class="preview-image">
+                    <img src="imagens/piquia capa.png" alt="Piquiá da Amazônia">
+                    <div class="image-overlay">
+                        <a href="piquia.html" class="cta-button">Descubra Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="preview-info">
+                    <h3>Piquiá</h3>
+                    <p>Fruto amazônico com poderosas propriedades anti-inflamatórias e antioxidantes. Um tesouro natural que fortalece a imunidade, melhora a digestão e cuida da saúde da pele.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-band-aid"></i>
+                            <span>Anti-inflamatório natural</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Fortalece a imunidade</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Saúde cardiovascular</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>Rico em antioxidantes</span>
+                        </div>
+                    </div>
+                    
+                    <a href="piquia.html" class="cta-button secondary">Conheça Todos os Benefícios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
