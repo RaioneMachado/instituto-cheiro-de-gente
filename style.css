@@ -4966,6 +4966,12 @@ body {
     text-transform: uppercase;
 }
 
+/* 🔽 Espaçamento extra para descer os botões */
+.hero-cta {
+    margin-top: 8.0rem; /* ajuste aqui o valor, pode aumentar ou diminuir */
+}
+
+
 /* PARTICIPAÇÕES SECTION */
 .participacoes-section {
     padding: 6rem 0;
